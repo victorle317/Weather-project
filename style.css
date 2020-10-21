@@ -1904,22 +1904,6 @@ Contact
   background: #262936;
   padding: 50px 0;
 }
-.site-footer .subscribe-form {
-  position: relative;
-  margin-bottom: 30px;
-}
-.site-footer .subscribe-form input[type="text"] {
-  padding: 20px 100px 20px 20px;
-  background: #1e202b;
-  width: 100%;
-  color: white;
-}
-.site-footer .subscribe-form input[type="submit"] {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  bottom: 5px;
-}
 .site-footer .social-links a {
   width: 40px;
   height: 40px;
@@ -1938,3 +1922,7 @@ Contact
   background: #009ad8;
   color: white;
 }
+.site-footer .social-links a:active {
+  border: none;
+}
+
