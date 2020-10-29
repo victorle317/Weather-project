@@ -12,7 +12,8 @@
 section {
   position: relative;
   min-height: 100vh;
-  background-color: rgb(223, 148, 120);
+  background: url(https://images.pexels.com/photos/1037992/pexels-photo-1037992.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;

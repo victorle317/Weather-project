@@ -20,41 +20,23 @@
 
 
 <body>
-
 	<div class="site-content">
-		<div class="site-header">
-			<div class="container">
-				<a href="index.html" class="branding">
-					<img src="images/logo.png" alt="" class="logo">
-					<div class="logo-type">
-						<h1 class="site-title">XO Weather</h1>
-						<small class="site-description">Accompany with you</small>
-					</div>
-				</a>
-
-				<!-- Default snippet for navigation -->
-				<div class="main-navigation">
-					<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
-					<ul class="menu">
-						<li class="menu-item current-menu-item"><a href="index.html">Home</a></li>
-						<li class="menu-item"><a href="contact.html">Contact</a></li>
-						<li class="menu-item dropdown">
-							TranslateX
-							<ul class="dropdown_menu dropdown_menu-5">
-								<li class="dropdown_item-1">Item 1</li>
-								<li class="dropdown_item-2">Item 2</li>
-								<li class="dropdown_item-3">Item 3</li>
-								<li class="dropdown_item-4">Item 4</li>
-								<li class="dropdown_item-5">Item 5</li>
-							</ul>
-						</li>
-					</ul> <!-- .menu -->
-				</div> <!-- .main-navigation -->
-
-				<div class="mobile-navigation"></div>
-
-			</div>
-		</div> <!-- .site-header -->
+		<header>
+			<a href="#home" class="logo">
+				<img src="images/logo.png" alt="" class="logo">
+				<div class="logo-type">
+					<h1 class="site-title">XO Weather</h1>
+					<small class="site-description">Accompany with you</small>
+				</div>
+			</a>
+			<div class="toggle" onclick="toggleMenu()"></div>
+			<ul class="menu">
+				<li><a href="#home" onclick="toggleMenu()">Trang Chủ</a></li>
+				<li><a href="#about" onclick="toggleMenu()">Thông tin và Liên hệ</a></li>
+				<li><a href="#account" onclick="toggleMenu()">Tài Khoản</a></li>
+				<li><a href="./signin-signup.html" onclick="toggleMenu()">Đăng Nhập / Đăng Kí</a></li>
+			</ul>
+		</header>
 
 		<div class="hero"
 			data-bg-image="https://images.pexels.com/photos/615348/forest-fog-sunny-nature-615348.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
@@ -133,6 +115,10 @@
 
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/plugins.js"></script>
+	<script src="./js/test.js">
+		
+
+	</script>
 	<script src="js/app.js" type="module"></script>
 
 </body>
