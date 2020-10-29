@@ -1893,7 +1893,8 @@ header .menu li a {
 header .menu li a:hover,
 header .menu li a:active {
   transition: 0.5s;
-  background: yellowgreen;
+  background: #009ad8;
+  color: white;
 }
 header.sticky ul li a {
   color: #111;
