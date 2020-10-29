@@ -36,11 +36,17 @@ $btnLogin.addEventListener("click", (e) => {
   //get info
   let email = $loginForm["login-email"].value;
   let password = $loginForm["login-password"].value;
-  //login the user
-  auth
-    .signInWithEmailAndPassword(email, password)
-    .then(() => {
-      window.location.href = "index.html";
-    })
-    .catch();
+  if (email == "" || password == "") {
+    alert("Không được bỏ trống");
+  } else {
+    //login the user
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        window.location.href = "index.html";
+      })
+      .catch(() => {
+        alert("Tài khoản hoặc mật khẩu không đúng ! ");
+      });
+  }
 });

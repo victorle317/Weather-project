@@ -1588,19 +1588,18 @@ header,
   top: 5px;
   right: 5px;
   bottom: 5px;
-  padding: 0 63px;
+  padding: 0 63.6px;
   width: 210px;
   display: flex;
   flex-direction: row;
-
 }
-.find-location .action-local  input[type="submit"]:first-child {
+.find-location .action-local input[type="submit"]:first-child {
   width: 100px;
   border-radius: 20px 0 0 3px;
   border-right: 1px solid #32354486;
   padding: 10px 10px;
 }
-.find-location .action-local  input[type="submit"]:last-child {
+.find-location .action-local input[type="submit"]:last-child {
   width: 90px;
   border-radius: 0 3px 17px 0;
   padding: 10px 10px;
@@ -1880,6 +1879,11 @@ header .menu li {
   position: relative;
   list-style: none;
 }
+.hero {
+  background-image: url(https://images.pexels.com/photos/615348/forest-fog-sunny-nature-615348.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-attachment: fixed;
+  background-size: cover;
+}
 header .menu li a {
   position: relative;
   display: inline-block;
@@ -1893,7 +1897,8 @@ header .menu li a {
 header .menu li a:hover,
 header .menu li a:active {
   transition: 0.5s;
-  background: yellowgreen;
+  background: #009ad8;
+  color: white;
 }
 header.sticky ul li a {
   color: #111;
@@ -1903,8 +1908,6 @@ header.sticky {
   padding: 8px 50px;
   z-index: 1000;
 }
-
-
 
 /* ============================================================================================================== */
 /* ----------------------------------RESPONSIVE------------------------------------------------------------------ */
