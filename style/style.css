@@ -1,6 +1,11 @@
 /*=========================================== 
  * Importing CSS Libraries
  *===========================================*/
+
+@font-face {
+  font-family: beVn;
+  src: url(../fonts/BeVietnam-Medium.ttf);
+} 
 article,
 aside,
 details,
@@ -245,6 +250,7 @@ table {
 *,
 *:before,
 *:after {
+  font-family: beVn;
   box-sizing: border-box;
 }
 
@@ -257,7 +263,6 @@ html {
 
 body {
   color: #bfc1c8;
-  font-family: "Roboto", "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 300;
   line-height: 1.5;
