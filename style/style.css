@@ -1572,12 +1572,13 @@ header,
 .hero {
   background-size: cover;
   padding: 70px 0;
-  min-height: 350px;
+  min-height: 450px;
 }
 
 .find-location {
   position: relative;
   margin-bottom: 70px;
+  margin-top: 100px;
 }
 .find-location input[type="text"] {
   width: 100%;
