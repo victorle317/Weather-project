@@ -32,9 +32,10 @@
 			<div class="toggle" onclick="toggleMenu()"></div>
 			<ul class="menu">
 				<li><a href="#home" onclick="toggleMenu()">Trang Chủ</a></li>
+				<li><a href="#account" onclick="toggleMenu()" class="login-link-in">Tài Khoản</a></li>
 				<li><a href="./contact.html" onclick="toggleMenu()">Thông tin và Liên hệ</a></li>
-				<li><a href="#account" onclick="toggleMenu()">Tài Khoản</a></li>
-				<li><a href="./signin-signup.html" onclick="toggleMenu()">Đăng Nhập / Đăng Kí</a></li>
+				<li><a href="./signin-signup.html" onclick="toggleMenu()" class="login-link-out">Đăng Nhập / Đăng Kí</a></li>
+				<li><a href="./signin-signup.html" onclick="toggleMenu()" id="logout" class="login-link-in">Đăng Xuất</a></li>
 			</ul>
 		</header>
 
@@ -116,9 +117,39 @@
 		</footer> <!-- .site-footer -->
 	</div>
 
+	<!-- FIREBASE -->
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyD4cRP-5D7g0X2CcKK1zYxp5U8tDkxgX00",
+            authDomain: "weather-c12d2.firebaseapp.com",
+            databaseURL: "https://weather-c12d2.firebaseio.com",
+            projectId: "weather-c12d2",
+            // storageBucket: "weather-c12d2.appspot.com",
+            // messagingSenderId: "342820366738",
+            appId: "1:342820366738:web:fd95dc766052cbaec0794b"
+        };
+        // Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		// Make auth and firestore
+		const auth = firebase.auth();
+        const db = firebase.firestore();
+	</script>
+	
+
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/plugins.js"></script>
 	<script src="./js/nav.js"></script>
+	<script src="./js/firebase/auth-logout.js"></script>
 	<script src="js/app.js" type="module"></script>
 
 </body>

@@ -1874,6 +1874,7 @@ header .logo .logo-type .site-description {
 header .menu {
   position: relative;
   display: flex;
+  text-transform: uppercase;
 }
 header .menu li {
   position: relative;

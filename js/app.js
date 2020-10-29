@@ -1,5 +1,46 @@
 import "./sign.js";
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // (function ($, document, window) {
 //   $(document).ready(function () {
 //     // Cloning main navigation for mobile menu
