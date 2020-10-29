@@ -1,11 +1,5 @@
 import "./sign.js";
 
-window.addEventListener("scroll", function () {
-  let header = document.querySelector("header");
-  header.classList.toggle("sticky", window.scrollY > 0);
-});
-
-
 // (function ($, document, window) {
 //   $(document).ready(function () {
 //     // Cloning main navigation for mobile menu
