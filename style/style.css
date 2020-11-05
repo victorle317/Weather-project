@@ -1713,7 +1713,7 @@ header.sticky {
 .forecast-container .forecast:nth-child(even) {
   background-color: #04111a;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
   .forecast-container .forecast {
     display: block;
     width: 50%;
@@ -1766,7 +1766,7 @@ header.sticky {
   margin-right: 5px;
   vertical-align: middle;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
   .forecast-container .forecast.today {
     display: block;
     width: 100%;
@@ -1789,6 +1789,9 @@ header.sticky {
   margin-bottom: 20px;
 }
 .forecast-container .forecast .forecast-content .degree {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 24px;
   font-size: 1.7142857143em;
   color: white;
