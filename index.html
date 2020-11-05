@@ -61,16 +61,18 @@
 					<input id="mySearch" type="text" placeholder="Nhập vị trí..." onchange="myFunction()"
 						onfocus="showResults()" onblur="hideResults()">
 					<div class="action-local">
-						<input type="submit" value="Định vị">
-						<input type="submit" value="Tìm kiếm">
+						<input type="submit" onclick="getLocation(event)" value="Định vị">
+						<input type="submit" onclick="myFunction()" value="Tìm kiếm">
 
 						<!-- <option value="">
 
 						</option> -->
 					</div>
 				</form>
-				<div class="btn btn-success" onclick="RealTimeSearch()">Enable Realtime Search</div>
-				<div class="btn btn-success" onclick="DisableRealTimeSearch()">Disable Realtime Search</div>
+				<div class="btn-group ">
+					<div class="btn btn-success" onclick="RealTimeSearch()">Enable Realtime Search</div>
+					<div class="btn btn-success" onclick="DisableRealTimeSearch()">Disable Realtime Search</div>
+				</div>
 				<div id="results" class="d-none">
 					<ul id="myMenu">
 						<li><a href="#" style="display: none;">HTML</a></li>
@@ -138,7 +140,7 @@
 			</div>
 		</div>
 
-		<footer class="site-footer">
+		<footer class="site-footer" style="height: 20vh;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3">

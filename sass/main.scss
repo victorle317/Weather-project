@@ -24,11 +24,9 @@
 .find-location {
   margin-bottom: 0 !important;
 }
-.searchbox {
-  // background-color: #1e202b;
-}
+
 form input {
-  border-radius: 20px 3px 20px 3px;
+  border-radius: 20px 3px 0px 3px;
 }
 #results::-webkit-scrollbar {
   width: 10px;
@@ -42,4 +40,11 @@ form input {
 }
 #result::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
 }

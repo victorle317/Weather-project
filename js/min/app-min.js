@@ -41,6 +41,7 @@
 function showResults() {
     var results = document.querySelector('#results')
     results.classList.remove('d-none')
+    document.querySelector('.btn-group').classList.add('d-none')
     // results.style.display = 'block!important'
     // console.log('success')
     // console.log(results)
@@ -48,5 +49,7 @@ function showResults() {
 function hideResults(){
     var results = document.querySelector('#results')
     results.classList.add('d-none')
+    document.querySelector('.btn-group').classList.remove('d-none')
+
     
 }
