@@ -1832,7 +1832,7 @@ header {
   justify-content: space-between;
   align-items: center;
   transition: 0.5s;
-  background: rgba(255, 255, 255, 0.438);
+  background: rgb(255 255 255 / 94%);
   padding: 20px 50px;
   z-index: 1000;
 }
