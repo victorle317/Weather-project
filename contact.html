@@ -22,7 +22,7 @@
 
 	<div class="site-content">
 		<header>
-			<a href="#home" class="logo">
+			<a href="./index.html" class="logo">
 				<img src="images/logo.png" alt="" class="logo">
 				<div class="logo-type">
 					<h1 class="site-title">XO Weather</h1>
@@ -31,10 +31,13 @@
 			</a>
 			<div class="toggle" onclick="toggleMenu()"></div>
 			<ul class="menu">
-				<li><a href="./index.html" onclick="toggleMenu()">Trang Chủ</a></li>
-				<li><a href="./contact.html" onclick="toggleMenu()">Thông tin và Liên hệ</a></li>
-				<li><a href="#account" onclick="toggleMenu()">Tài Khoản</a></li>
-				<li><a href="./signin-signup.html" onclick="toggleMenu()">Đăng Nhập / Đăng Kí</a></li>
+				<li><a href="#home" onclick="toggleMenu()">Trang Chủ</a></li>
+				<li><a href="#account" onclick="toggleMenu()" class="login-link-in">Tài Khoản</a></li>
+				<li><a href="./contact.html" onclick="toggleMenu()" class="here">Thông tin và Liên hệ</a></li>
+				<li><a href="./signin-signup.html" onclick="toggleMenu()" class="login-link-out">Đăng Nhập / Đăng Kí</a>
+				</li>
+				<li><a href="./signin-signup.html" onclick="toggleMenu()" id="logout" class="login-link-in">Đăng
+						Xuất</a></li>
 			</ul>
 		</header>
 
@@ -105,6 +108,7 @@
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
 	<script src="js/plugins.js"></script>
 	<script src="./js/nav.js"></script>
+	<script src="./js/firebase/ui.js"></script>
 	<script src="js/app.js" type="module"></script>
 
 </body>

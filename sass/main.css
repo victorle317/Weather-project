@@ -18,7 +18,7 @@
 }
 
 #results {
-  background-color: #1e202b;
+  background-color: #010B11;
   height: 25vh;
   overflow-y: scroll;
 }
@@ -28,7 +28,7 @@
 }
 
 form input {
-  border-radius: 20px 3px 0px 3px;
+  border-radius: 20px 3px 20px 3px;
 }
 
 #results::-webkit-scrollbar {

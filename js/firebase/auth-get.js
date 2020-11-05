@@ -9,7 +9,6 @@ auth.onAuthStateChanged((user) => {
 
 //Logout
 const $logout = document.getElementById("logout");
-console.log("ss");
 $logout.addEventListener("click", () => {
   auth.signOut().then(() => {
     auth.signOut();

@@ -2,7 +2,7 @@
  * Importing CSS Libraries
  *===========================================*/
 
-@font-face {
+ @font-face {
   font-family: beVn;
   src: url(../fonts/BeVietnam-Medium.ttf);
 }
@@ -255,7 +255,7 @@ body {
   font-size: 14px;
   font-weight: 300;
   line-height: 1.5;
-  background: #1e202b;
+  background: #010B11;
 }
 
 h1,
@@ -1566,6 +1566,96 @@ header,
   font-family: beVn;
 }
 
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.5s;
+  background: #010B11;
+  padding: 20px 50px;
+  z-index: 1000;
+}
+header.sticky {
+  background: #010B11;
+  padding: 20px 100px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+header.sticky .logo {
+  color: #fff;
+}
+header .logo .logo-type {
+  width: 70%;
+  margin-left: 10px;
+}
+header .logo .logo-type .site-title {
+  font-size: 15px;
+  font-weight: 1000;
+  margin: 0;
+  text-transform: uppercase;
+}
+header .logo .logo-type .site-description {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+header .menu {
+  position: relative;
+  display: flex;
+  text-transform: uppercase;
+}
+header .menu li {
+  position: relative;
+  list-style: none;
+}
+.hero {
+  background-image: url(https://images.pexels.com/photos/615348/forest-fog-sunny-nature-615348.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-attachment: fixed;
+  background-size: cover;
+}
+header .menu li a {
+  position: relative;
+  display: inline-block;
+  margin: 0 15px;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.5s;
+  border-radius: 2px;
+}
+
+header .menu li a:hover,
+header .menu li a:active,
+.here {
+  transition: 0.5s;
+  background: #009ad8;
+  color: #fff;
+}
+
+header.sticky ul li a {
+  color: #fff;
+}
+header.sticky {
+  padding: 8px 50px;
+  z-index: 1000;
+}
+
 .hero {
   background-size: cover;
   padding: 70px 0;
@@ -1580,7 +1670,7 @@ header,
 .find-location input[type="text"] {
   width: 100%;
   padding: 20px 50px 20px 20px;
-  background: #1e202b;
+  background: #010B11;
   color: white;
 }
 .find-location .action-local {
@@ -1607,7 +1697,7 @@ header,
 
 .forecast-container {
   width: 100%;
-  background: #323544;
+  background: #021622;
   display: table;
   table-layout: fixed;
   width: 100%;
@@ -1621,7 +1711,7 @@ header,
   vertical-align: top;
 }
 .forecast-container .forecast:nth-child(even) {
-  background-color: #262936;
+  background-color: #04111a;
 }
 @media screen and (max-width: 700px) {
   .forecast-container .forecast {
@@ -1787,7 +1877,7 @@ Contact
  * Footer Styles
  */
 .site-footer {
-  background: #262936;
+  background: #021622;
   padding: 30px 0;
 }
 .site-footer-edit {
@@ -1820,93 +1910,6 @@ Contact
 .site-footer .copyright {
   font-family: beVn;
   margin-bottom: 0;
-}
-
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: 0.5s;
-  background: rgb(255 255 255 / 94%);
-  padding: 20px 50px;
-  z-index: 1000;
-}
-header.sticky {
-  background: #fff;
-  padding: 20px 100px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-}
-
-header .logo {
-  color: rgb(0, 0, 0);
-  font-size: 15px;
-  text-decoration: none;
-  letter-spacing: 1px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-header.sticky .logo {
-  color: #111;
-}
-header .logo .logo-type {
-  width: 70%;
-  margin-left: 10px;
-}
-header .logo .logo-type .site-title {
-  font-size: 15px;
-  font-weight: 1000;
-  margin: 0;
-  text-transform: uppercase;
-}
-header .logo .logo-type .site-description {
-  font-size: 10px;
-  font-weight: 600;
-}
-
-header .menu {
-  position: relative;
-  display: flex;
-  text-transform: uppercase;
-}
-header .menu li {
-  position: relative;
-  list-style: none;
-}
-.hero {
-  background-image: url(https://images.pexels.com/photos/615348/forest-fog-sunny-nature-615348.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
-  background-attachment: fixed;
-  background-size: cover;
-}
-header .menu li a {
-  position: relative;
-  display: inline-block;
-  margin: 0 15px;
-  padding: 10px;
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-  transition: 0.5s;
-  border-radius: 2px;
-}
-header .menu li a:hover,
-header .menu li a:active {
-  transition: 0.5s;
-  background: #009ad8;
-  color: white;
-}
-header.sticky ul li a {
-  color: #111;
-}
-
-header.sticky {
-  padding: 8px 50px;
-  z-index: 1000;
 }
 
 /* ============================================================================================================== */

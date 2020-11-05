@@ -10,37 +10,35 @@
   padding: 12px;
   text-decoration: none;
   color: white;
-  display: block
+  display: block;
 }
 
 #myMenu li a:hover {
   background-color: rgba(238, 238, 238, 0.425);
 }
-#results{
-    background-color:#1e202b;
-    height: 25vh;
-    overflow-y: scroll;
-
+#results {
+  background-color: #1e202b;
+  height: 25vh;
+  overflow-y: scroll;
 }
-.find-location{
-    margin-bottom: 0!important;
+.find-location {
+  margin-bottom: 0 !important;
 }
-.searchbox{
-    // background-color: #1e202b;
+.searchbox {
+  // background-color: #1e202b;
 }
 form input {
-    border-radius: 20px 3px 0px 3px;
+  border-radius: 20px 3px 20px 3px;
 }
 #results::-webkit-scrollbar {
   width: 10px;
 }
 #results::-webkit-scrollbar-track {
- background-color: rgb(40, 39, 49);
+  background-color: rgb(40, 39, 49);
 }
 #results::-webkit-scrollbar-thumb {
   background: rgb(219, 217, 217);
-//   border-radius: 10%;
- 
+  //   border-radius: 10%;
 }
 #result::-webkit-scrollbar-thumb:hover {
   background: #555;
