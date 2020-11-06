@@ -28,7 +28,7 @@
 }
 
 form input {
-  border-radius: 20px 3px 0px 3px;
+  border-radius: 20px 3px 20px 3px;
 }
 
 #results::-webkit-scrollbar {
