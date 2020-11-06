@@ -1,4 +1,5 @@
 var datas = [{ "id": 2801268, "name": "London, City of London, Greater London, United Kingdom", "region": "City of London, Greater London", "country": "United Kingdom", "lat": 51.52, "lon": -0.11, "url": "london-city-of-london-greater-london-united-kingdom" }, { "id": 2796590, "name": "Holborn, Camden, Greater London, United Kingdom", "region": "Camden, Greater London", "country": "United Kingdom", "lat": 51.52, "lon": -0.12, "url": "holborn-camden-greater-london-united-kingdom" }, { "id": 2812957, "name": "St Giles, Camden, Greater London, United Kingdom", "region": "Camden, Greater London", "country": "United Kingdom", "lat": 51.52, "lon": -0.12, "url": "st-giles-camden-greater-london-united-kingdom" }, { "id": 2791655, "name": "Finsbury, Islington, Greater London, United Kingdom", "region": "Islington, Greater London", "country": "United Kingdom", "lat": 51.53, "lon": -0.11, "url": "finsbury-islington-greater-london-united-kingdom" }, { "id": 2786308, "name": "Clerkenwell, Islington, Greater London, United Kingdom", "region": "Islington, Greater London", "country": "United Kingdom", "lat": 51.53, "lon": -0.11, "url": "clerkenwell-islington-greater-london-united-kingdom" }, { "id": 2781746, "name": "Bloomsbury, Camden, Greater London, United Kingdom", "region": "Camden, Greater London", "country": "United Kingdom", "lat": 51.53, "lon": -0.12, "url": "bloomsbury-camden-greater-london-united-kingdom" }, { "id": 2813087, "name": "St Pancras, Camden, Greater London, United Kingdom", "region": "Camden, Greater London", "country": "United Kingdom", "lat": 51.53, "lon": -0.12, "url": "st-pancras-camden-greater-london-united-kingdom" }, { "id": 2813948, "name": "Strand, Westminster, Greater London, United Kingdom", "region": "Westminster, Greater London", "country": "United Kingdom", "lat": 51.51, "lon": -0.12, "url": "strand-westminster-greater-london-united-kingdom" }, { "id": 2813028, "name": "St Luke's, Islington, Greater London, United Kingdom", "region": "Islington, Greater London", "country": "United Kingdom", "lat": 51.53, "lon": -0.09, "url": "st-lukes-islington-greater-london-united-kingdom" }, { "id": 2811665, "name": "Shoreditch, Hackney, Greater London, United Kingdom", "region": "Hackney, Greater London", "country": "United Kingdom", "lat": 51.53, "lon": -0.09, "url": "shoreditch-hackney-greater-london-united-kingdom" }]
+var FakeDataForForcast = []
 var container = document.querySelector('#results');
 var timeoutList = []
 var LocationDetail = {
@@ -44,7 +45,8 @@ function render(datas) {
         let li = document.createElement('li')
         let a = document.createElement('a')
         a.setAttribute('href', '#')
-        a.setAttribute('id', `${place.id}`)
+        a.setAttribute('id', `${place.lat},${place.lon}`)
+        a.setAttribute('onclick', 'alert1(event,this)')
         //   a.style.display = 'none'
         a.textContent = place.name
         li.appendChild(a)
@@ -122,3 +124,33 @@ async function SearchByGPSAPICall(LocationDetail) {
 
         });
 }
+function alert1(event,element){
+    let id = null
+    if(event){
+        event.preventDefault()
+    }
+  console.log(event)
+  console.log(element)
+    id = element.getAttribute("id");
+    console.log(id)
+  alert('clicked')
+}
+
+// axios.get(`http://api.weatherapi.com/v1/forecast.json?key=7b5133a15d544fd2938162305201910&q=Me Tri, Vietnam&days=2`)
+//     .then(function (response) {
+//         console.log(response.data)
+//         console.log(response)
+//         let data = response.data
+//         if (data.length === 0) {
+
+//         } else {
+//             // render(data)
+//         }
+//     })
+//     .catch(function (error) {
+//         console.log(error);
+//     })
+//     .then(function () {
+//         console.log('success')
+
+//     });
