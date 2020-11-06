@@ -35,7 +35,7 @@
 			height: 100vh;
 			z-index: 1031;
 		}
-	
+
 		#firstLottie {
 			width: 25vw;
 			height: 25vh;
@@ -45,28 +45,24 @@
 			margin: auto;
 		}
 	</style>
-
-
-
-
 </head>
 
 
 <body>
-		<!-- Loader -->
-		<div class="fixed-top loader-wrapper ">
-			<lottie-player id="firstLottie" background="transparent" speed="1" loop autoplay mode="normal"></lottie-player>
-			<script src="./Data/Animation.js"></script>
-			<script>
-				const player = document.querySelector("#firstLottie");
-				player.load(AnimationData)
-				setTimeout(function () {
-					$(".loader-wrapper").fadeOut(500, () => { console.log('success') })
-				}, 5000)
-			</script>
-		</div>
-		
-		<!-- Loader -->
+	<!-- Loader -->
+	<div class="fixed-top loader-wrapper ">
+		<lottie-player id="firstLottie" background="transparent" speed="1" loop autoplay mode="normal"></lottie-player>
+		<script src="./Data/Animation.js"></script>
+		<script>
+			const player = document.querySelector("#firstLottie");
+			player.load(AnimationData)
+			setTimeout(function () {
+				$(".loader-wrapper").fadeOut(500, () => { console.log('success') })
+			}, 5000)
+		</script>
+	</div>
+
+	<!-- End Loader -->
 	<div class="site-content">
 		<header>
 			<a href="./index.html" class="logo">
@@ -76,10 +72,11 @@
 					<small class="site-description">Accompany with you</small>
 				</div>
 			</a>
-			<div class="toggle" onclick="toggleMenu()"></div> 
+			<div class="toggle" onclick="toggleMenu()"></div>
 			<ul class="menu">
 				<li><a href="#home" onclick="toggleMenu()" class="here">Trang Chủ</a></li>
-				<li><a href="#account" onclick="toggleMenu()" class="login-link-in">Tài Khoản</a></li>
+				<li><a href="#account" onclick="toggleMenu()" class="login-link-in" data-toggle="modal"
+						data-target="#staticBackdrop">Tài Khoản</a></li>
 				<li><a href="./contact.html" onclick="toggleMenu()">Thông tin và Liên hệ</a></li>
 				<li><a href="./signin-signup.html" onclick="toggleMenu()" class="login-link-out">Đăng Nhập / Đăng Kí</a>
 				</li>
@@ -88,14 +85,16 @@
 			</ul>
 		</header>
 
+
+
 		<div class="hero">
 			<div class="container searchbox">
 				<form action="#" class="find-location">
-						<input id="mySearch" type="text" placeholder="Nhập vị trí..." onchange="myFunction()" onfocus="showResults()"
-							onblur="hideResults() " autocomplete="off">
-						<div class="action-local">
-							<input type="submit" onclick="getLocation(event),showResults()" value="Định vị">
-							<input type="submit" onclick="myFunction(),showResults(event)" value="Tìm kiếm">
+					<input id="mySearch" type="text" placeholder="Nhập vị trí..." onchange="myFunction()"
+						onfocus="showResults()" onblur="hideResults() " autocomplete="off">
+					<div class="action-local">
+						<input type="submit" onclick="getLocation(event),showResults()" value="Định vị">
+						<input type="submit" onclick="myFunction(),showResults(event)" value="Tìm kiếm">
 
 						<!-- <option value="">
 
@@ -173,6 +172,48 @@
 			</div>
 		</div>
 
+		<!-- Modal -->
+		<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+			aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="profile-card">
+						<div class="card-header">
+							<div class="pic">
+								<img src="https://d11a6trkgmumsb.cloudfront.net/original/3X/d/8/d8b5d0a738295345ebd8934b859fa1fca1c8c6ad.jpeg" alt="">
+							</div>
+							<div class="name">Họ tên</div>
+							<div class="note">Note</div>
+							<div class="sm">
+								<a href="#" class="fab fa-facebook-f"></a>
+								<a href="#" class="fab fa-twitter"></a>
+								<a href="#" class="fab fa-instagram"></a>
+							</div>
+							<a href="#" class="action-btn">Thay đổi thông tin</a>
+							<a href="#" class="action-btn">Đăng Xuất</a>
+						</div>
+						<div class="card-footer">
+							<div class="numbers">
+								<div class="item">
+									<span>12</span>
+									Địa chỉ đã tìm
+								</div>
+								<div class="border"></div>
+								<div class="item">
+									<span>1</span>
+									Địa chỉ đang theo dõi
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="action-btn-close" data-dismiss="modal">Đóng</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<footer class="site-footer" style="height: 20vh;">
 			<div class="container">
 				<div class="row">
@@ -186,8 +227,8 @@
 				</div>
 				<br>
 				<p class="copyright">Copyright &copy;
-				<script>document.write(new Date().getFullYear());</script>
-				All rights reserved by <a href="#" target="_blank"> XO - Weather.</p>
+					<script>document.write(new Date().getFullYear());</script>
+					All rights reserved by <a href="#" target="_blank"> XO - Weather.</p>
 			</div>
 		</footer> <!-- .site-footer -->
 	</div>
