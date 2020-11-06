@@ -9,7 +9,6 @@
 	<title>XO Weather</title>
 
 	<!-- Loading third party fonts -->
-	<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 	<!-- Loading main css file -->
@@ -76,7 +75,7 @@
 			<ul class="menu">
 				<li><a href="#home" onclick="toggleMenu()" class="here">Trang Chủ</a></li>
 				<li><a href="#account" onclick="toggleMenu()" class="login-link-in" data-toggle="modal"
-						data-target="#staticBackdrop">Tài Khoản</a></li>
+						data-target="#info-user">Tài Khoản</a></li>
 				<li><a href="./contact.html" onclick="toggleMenu()">Thông tin và Liên hệ</a></li>
 				<li><a href="./signin-signup.html" onclick="toggleMenu()" class="login-link-out">Đăng Nhập / Đăng Kí</a>
 				</li>
@@ -173,7 +172,7 @@
 		</div>
 
 		<!-- Modal -->
-		<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+		<div class="modal fade" id="info-user" data-backdrop="static" data-keyboard="false" tabindex="-1"
 			aria-labelledby="staticBackdropLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
@@ -268,9 +267,6 @@
 	<script src="./js/firebase/auth-get.js"></script>
 	<script src="./js/firebase/firestore.js"></script>
 	<script src="./js/firebase/ui.js"></script>
-	<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-				integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-				crossorigin="anonymous"></script> -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
 		crossorigin="anonymous"></script>
