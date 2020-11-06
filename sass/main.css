@@ -54,4 +54,10 @@ input:-webkit-autofill:focus {
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
 }
+
+.inputfix {
+  border-radius: 20px 3px 0px 3px;
+  -webkit-transition: border-radius,linear,0.7s;
+  transition: border-radius,linear,0.7s;
+}
 /*# sourceMappingURL=main.css.map */

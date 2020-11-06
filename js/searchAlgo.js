@@ -2,13 +2,15 @@ var datas = [{ "id": 2801268, "name": "London, City of London, Greater London, U
 var container = document.querySelector('#results');
 var timeoutList = []
 var LocationDetail = {
-    latitude:null,
+    latitude: null,
     longitude: null,
 };
+var getLocationIsClicked = false
 
 
 function getLocation(e) {
     e.preventDefault()
+    getLocationIsClicked = true
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else {
@@ -18,8 +20,9 @@ function getLocation(e) {
 
 function showPosition(position) {
     LocationDetail.longitude = position.coords.longitude
-    LocationDetail.latitude  = position.coords.latitude
-    console.log(LocationDetail) 
+    LocationDetail.latitude = position.coords.latitude
+    console.log(LocationDetail)
+    myFunction()
 }
 
 function RealTimeSearch() {
@@ -41,7 +44,7 @@ function render(datas) {
         let li = document.createElement('li')
         let a = document.createElement('a')
         a.setAttribute('href', '#')
-        a.setAttribute('id',`${place.id}`)
+        a.setAttribute('id', `${place.id}`)
         //   a.style.display = 'none'
         a.textContent = place.name
         li.appendChild(a)
@@ -52,7 +55,6 @@ function render(datas) {
 }
 
 // render(datas)
-// đợi người dùng ko nhập gì nữa thì mới search, clear settimeout
 
 async function myFunction() {
     // Declare variables
@@ -62,38 +64,52 @@ async function myFunction() {
     ul = document.getElementById("myMenu");
     li = ul.getElementsByTagName("li");
 
-    // console.log('clear1')
-    // console.log(timeoutList)
     timeoutList.forEach(v => {
         clearTimeout(v)
-        // console.log(v)
+
     })
-    // clearTimeout(settimeout)
-    // console.log('clear1')
-   
 
     timeoutList.push(setTimeout(async function () {
-        // console.log('chạy settimeout')
         if (filter != '') {
-           SearchAPICall(filter)
+            SearchByKeywordAPICall(filter)
         }
-        // else if(LocationDetail.latitude !=null){
-        //     SearchAPICall(filter,LocationDetail)
-        // }
+        if (getLocationIsClicked) {
+            SearchByGPSAPICall(LocationDetail)
+            getLocationIsClicked = false
+        }
+
     }, 1500))
 
 
 }
 
-async function SearchAPICall(filter, LocationDetail){
-    await axios.get(`http://api.weatherapi.com/v1/search.json?key=7b5133a15d544fd2938162305201910&q=${filter}&lang=vi`)
+async function SearchByKeywordAPICall(keyword) {
+    await axios.get(`http://api.weatherapi.com/v1/search.json?key=7b5133a15d544fd2938162305201910&q=${keyword}&lang=vi`)
         .then(function (response) {
-            console.log(response.data);
-            // console.log(response);
-
+            console.log(response.data)
             let data = response.data
             if (data.length === 0) {
-                // alert(`The system responded with Error . Please search again`)
+
+            } else {
+                render(data)
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+        .then(function () {
+            console.log('success')
+
+        });
+}
+
+async function SearchByGPSAPICall(LocationDetail) {
+    await axios.get(`http://api.weatherapi.com/v1/search.json?key=7b5133a15d544fd2938162305201910&q=${LocationDetail.latitude},${LocationDetail.longitude}&lang=vi`)
+        .then(function (response) {
+            console.log(response.data)
+            let data = response.data
+            if (data.length === 0) {
+
             } else {
                 render(data)
             }

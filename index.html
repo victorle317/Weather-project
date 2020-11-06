@@ -17,15 +17,34 @@
 		integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 	<link rel="stylesheet" href="./style/style.css">
 	<link rel="stylesheet" href="./sass/main.css">
-	<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-		crossorigin="anonymous"></script> -->
-	<!-- <script src="./js/app.js" type="module"></script> -->
+
 	<script src="./js/min/app-min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+	<script src="@lottiefiles\lottie-interactivity\dist\lottie-interactivity.min.js"></script>
+	<style>
+		.loader-wrapper {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			background-color: white;
+			width: 100vw;
+			height: 100vh;
+			z-index: 1031;
+		}
+	
+		#firstLottie {
+			width: 25vw;
+			height: 25vh;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+			margin: auto;
+		}
+	</style>
 
 
 
@@ -34,6 +53,20 @@
 
 
 <body>
+		<!-- Loader -->
+		<div class="fixed-top loader-wrapper ">
+			<lottie-player id="firstLottie" background="transparent" speed="1" loop autoplay mode="normal"></lottie-player>
+			<script src="./Data/Animation.js"></script>
+			<script>
+				const player = document.querySelector("#firstLottie");
+				player.load(AnimationData)
+				setTimeout(function () {
+					$(".loader-wrapper").fadeOut(500, () => { console.log('success') })
+				}, 5000)
+			</script>
+		</div>
+		
+		<!-- Loader -->
 	<div class="site-content">
 		<header>
 			<a href="./index.html" class="logo">
@@ -58,11 +91,11 @@
 		<div class="hero">
 			<div class="container searchbox">
 				<form action="#" class="find-location">
-					<input id="mySearch" type="text" placeholder="Nhập vị trí..." onchange="myFunction()"
-						onfocus="showResults()" onblur="hideResults()">
-					<div class="action-local">
-						<input type="submit" onclick="getLocation(event)" value="Định vị">
-						<input type="submit" onclick="myFunction()" value="Tìm kiếm">
+						<input id="mySearch" type="text" placeholder="Nhập vị trí..." onchange="myFunction()" onfocus="showResults()"
+							onblur="hideResults() " autocomplete="off">
+						<div class="action-local">
+							<input type="submit" onclick="getLocation(event),showResults()" value="Định vị">
+							<input type="submit" onclick="myFunction(),showResults(event)" value="Tìm kiếm">
 
 						<!-- <option value="">
 
@@ -152,7 +185,9 @@
 					</div>
 				</div>
 				<br>
-				<p class="copyright">Copyright 2020 XO - Weather.</p>
+				<p class="copyright">Copyright &copy;
+				<script>document.write(new Date().getFullYear());</script>
+				All rights reserved by <a href="#" target="_blank"> XO - Weather.</p>
 			</div>
 		</footer> <!-- .site-footer -->
 	</div>
