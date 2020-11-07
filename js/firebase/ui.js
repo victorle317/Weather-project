@@ -10,6 +10,28 @@ const setupUI = (user) => {
       document.querySelector(".name").innerHTML = `${result.data().fullName}`;
       document.querySelector(".bio").innerHTML = `${result.data().bio}`;
     })(user.uid);
+
+    document.querySelector("#edit-profile").addEventListener("click", () => {
+      let select = Number(prompt(`1: "Thay doi ho ten"\n2: "Thay doi bio`));
+      switch (select) {
+        case 1: {
+          let newName = prompt("Nhap ten moi: ");
+          alert(newName);
+          db.collection("Users").doc(user.uid).update({ fullName: newName });
+          document.querySelector(".name").innerHTML = `${newName}`;
+          break;
+        }
+        case 2: {
+          let newBio = prompt("Nhap bio moi: ");
+          db.collection("Users").doc(user.uid).update({ bio: newBio });
+          document.querySelector(".bio").innerHTML = `${newBio}`;
+          break;
+        }
+        default: {
+          alert("Nhap dung di tk ngu");
+        }
+      }
+    });
     //toggle UI elements
     $loginLinkIn.forEach((item) => (item.style.display = "block"));
     $loginLinkOut.forEach((item) => (item.style.display = "none"));
