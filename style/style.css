@@ -1581,6 +1581,8 @@ header {
   background: #010B11;
   padding: 20px 50px;
   z-index: 1000;
+  -webkit-user-select: none;
+    user-select: none;
 }
 header.sticky {
   background: #010B11;
