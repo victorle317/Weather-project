@@ -1835,7 +1835,7 @@ Account
 .pic{
   display: inline-block;
   padding: 8px;
-  background: linear-gradient(130deg, #009ad8, #15ca34);
+  background: linear-gradient(130deg, #009ad8, #f00606);
   margin: auto;
   border-radius: 50%;
   background-size: 200% 200%;
@@ -1871,7 +1871,7 @@ Account
   margin: 10px 0;
 }
 
-.note{
+.bio{
   font-size: 18px;
   color: #009ad8;
 }
