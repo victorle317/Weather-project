@@ -10,12 +10,14 @@ var getLocationIsClicked = false
 
 
 function getLocation(e) {
-    e.preventDefault()
+    if(e){
+        e.preventDefault()
+    }
     getLocationIsClicked = true
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else {
-        console.log("Geolocation is not supported by this browser.");
+        alert("Geolocation is not supported by this browser.");
     }
 }
 
@@ -26,6 +28,7 @@ function showPosition(position) {
     myFunction()
 }
 
+// Bật chức năng realtime search
 function RealTimeSearch() {
 
     console.log('clicked')
@@ -33,20 +36,25 @@ function RealTimeSearch() {
     document.querySelector('#mySearch').setAttribute('onkeyup', "myFunction()")
 
 }
+//tắt realtime search
 function DisableRealTimeSearch() {
     console.log('clicked')
     document.querySelector('#mySearch').removeAttribute('onkeyup')
     document.querySelector('#mySearch').setAttribute('onchange', "myFunction()")
 }
+// Hàm này dùng để render Autocomplete/Search data ở dưới thanh input
 function render(datas) {
     var myMenu = document.querySelector('#myMenu')
     myMenu.innerHTML = ''
+    // lặp qua các dữ liệu trả về
     datas.forEach(place => {
         let li = document.createElement('li')
         let a = document.createElement('a')
         a.setAttribute('href', '#')
+        // trong dữ liệu trả về có kinh độ vĩ độ thì thêm vào id để về sau gọi API forecast
         a.setAttribute('id', `${place.lat},${place.lon}`)
-        a.setAttribute('onclick', 'alert1(event,this)')
+        // Gắn sự kiện lắng nghe click, để gọi API forecast, nhận vào giá trị event là click, this là cả cái thẻ
+        a.setAttribute('onclick', 'GetWeatherForecast(event,this)')
         //   a.style.display = 'none'
         a.textContent = place.name
         li.appendChild(a)
@@ -58,6 +66,7 @@ function render(datas) {
 
 // render(datas)
 
+//hàm này lắng nghe sự kiện ở input, xem người dùng nhập gì rồi lưu vào biến filter
 async function myFunction() {
     // Declare variables
     let input, filter, ul, li;
@@ -85,13 +94,14 @@ async function myFunction() {
 
 }
 
+//hàm này nhận tham số là tên địa điểm nào đó (ở input) và gọi API
 async function SearchByKeywordAPICall(keyword) {
     await axios.get(`http://api.weatherapi.com/v1/search.json?key=7b5133a15d544fd2938162305201910&q=${keyword}&lang=vi`)
         .then(function (response) {
             console.log(response.data)
             let data = response.data
             if (data.length === 0) {
-
+                alert('No data for this place on server, please try to search another one')
             } else {
                 render(data)
             }
@@ -105,14 +115,17 @@ async function SearchByKeywordAPICall(keyword) {
         });
 }
 
+// Hàm này nhận tham số là 1 object có đầy đủ kinh độ vĩ độ và gọi API
 async function SearchByGPSAPICall(LocationDetail) {
     await axios.get(`http://api.weatherapi.com/v1/search.json?key=7b5133a15d544fd2938162305201910&q=${LocationDetail.latitude},${LocationDetail.longitude}&lang=vi`)
         .then(function (response) {
             console.log(response.data)
             let data = response.data
             if (data.length === 0) {
+                alert('No data for this place on server, please try to search another one')
 
             } else {
+                // render dữ liệu trả về ra cái autocomplete ở input
                 render(data)
             }
         })
@@ -124,33 +137,69 @@ async function SearchByGPSAPICall(LocationDetail) {
 
         });
 }
-function alert1(event,element){
+
+// Hàm này dùng để gọi API cho weather forecast , nhận vào 3 tham số event, element và object toạ độ
+async function GetWeatherForecast(event,element,LocationDetail){
     let id = null
+    // nếu có sự kiện click thì ko chuyển trang 
     if(event){
         event.preventDefault()
     }
-  console.log(event)
-  console.log(element)
-    id = element.getAttribute("id");
-    console.log(id)
-  alert('clicked')
+ //   console.log(event)
+ //   console.log(element)
+ // 2 lệnh if ở dưới là như nhau, a viết vội chưa tối ưu được
+ // nếu người dùng click vào search result thì chạy vế if element
+    if(element){
+     id = element.getAttribute("id");
+     console.log(id)
+     await  axios.get(`http://api.weatherapi.com/v1/forecast.json?key=7b5133a15d544fd2938162305201910&q=${id}&days=7`)
+     .then(function (response) {
+         console.log(response.data)
+         console.log(response)
+         let data = response.data
+         template.render(data)
+     })
+     .catch(function (error) {
+         console.log(error);
+     })
+     .then(function () {
+         console.log('success')
+ 
+     });
+
+    }
+// Nếu người dùng ko click gì cả thì lấy dữ liệu từ định vị (dùng cho lần đầu tiên load trang)
+   if(LocationDetail){
+             await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=7b5133a15d544fd2938162305201910&q=${LocationDetail.latitude},${LocationDetail.longitude}&days=7`)
+                 .then(function (response) {
+                     console.log(response.data)
+                     console.log(response)
+                     let data = response.data
+                     template.render(data)
+                 })
+                 .catch(function (error) {
+                     console.log(error);
+                 })
+                 .then(function () {
+                     console.log('success')
+
+                 });
+         }
+
+
 }
 
-// axios.get(`http://api.weatherapi.com/v1/forecast.json?key=7b5133a15d544fd2938162305201910&q=Me Tri, Vietnam&days=2`)
-//     .then(function (response) {
-//         console.log(response.data)
-//         console.log(response)
-//         let data = response.data
-//         if (data.length === 0) {
+//Hàm này sẽ chạy đầu tiên khi load page, chức năng: lấy toạ độ, gọi API và render địa điểm hiện tại
+window.onload = function(){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position){
+            LocationDetail.longitude = position.coords.longitude
+            LocationDetail.latitude = position.coords.latitude
+            console.log(LocationDetail)
+            GetWeatherForecast(false,false,LocationDetail)
+        });
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
 
-//         } else {
-//             // render(data)
-//         }
-//     })
-//     .catch(function (error) {
-//         console.log(error);
-//     })
-//     .then(function () {
-//         console.log('success')
-
-//     });
+}
