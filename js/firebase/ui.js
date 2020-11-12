@@ -12,7 +12,7 @@ const setupUI = (user) => {
       document.querySelector("#ist").href = `${result.data().instagram}`;
       document.querySelector("#twt").href = `${result.data().twitter}`;
     })(user.uid);
-
+    //edit account info
     document.querySelector("#edit-profile").addEventListener("click", () => {
       let select = Number(
         prompt(
@@ -67,6 +67,17 @@ const setupUI = (user) => {
         if (kt == false) break;
       }
     });
+    // contact
+    document
+      .querySelector(".text-right input[type='submit']")
+      .addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log(document.getElementById("contact-name").value);
+        db.collection("Contacts").add({
+          Numerical order: 
+          Name: document.getElementById("contact-name").value,
+        });
+      });
     //toggle UI elements
     $loginLinkIn.forEach((item) => (item.style.display = "block"));
     $loginLinkOut.forEach((item) => (item.style.display = "none"));
