@@ -1468,17 +1468,16 @@ form textarea {
 }
 
 .forecast-container .forecast .forecast-content .degree {
-  font-size: 24px;
-  font-size: 1.71429em;
+  font-size: 1em;
   color: white;
   font-weight: 700;
+  margin-top: 50px;
 }
-
-.forecast-container .forecast .forecast-content small {
-  font-size: 16px;
-  font-size: 1.14286em;
+@media screen and (max-width: 1198px) {
+  .forecast-container .forecast .forecast-content .degree {
+    font-size: 10px;
+  }
 }
-
 .fullwidth-block {
   padding: 70px 0;
 }

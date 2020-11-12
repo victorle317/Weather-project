@@ -20,7 +20,15 @@ $btnSignUp.addEventListener("click", (e) => {
         return db
           .collection("Users")
           .doc(cred.user.uid)
-          .set({ fullName: fName }, { bio: "Note" });
+          .set(
+            { fullName: fName },
+            { bio: "Note" },
+            { facebook: "#" },
+            { twitter: "#" },
+            { instagram: "#" },
+            { find: 0 },
+            { follow: 0 }
+          );
       })
       .then(() => {
         window.location.href = "index.html";

@@ -2,7 +2,7 @@
  * CSS Main
  *===========================================*/
 
- @font-face {
+@font-face {
   font-family: beVn;
   src: url(../fonts/BeVietnam-Medium.ttf);
 }
@@ -256,7 +256,7 @@ body {
   font-size: 14px;
   font-weight: 300;
   line-height: 1.5;
-  background: #010B11;
+  background: #010b11;
 }
 
 h1,
@@ -1567,7 +1567,6 @@ header,
   font-family: beVn;
 }
 
-
 header {
   position: fixed;
   top: 0;
@@ -1578,14 +1577,14 @@ header {
   justify-content: space-between;
   align-items: center;
   transition: 0.5s;
-  background: #010B11;
+  background: #010b11;
   padding: 20px 50px;
   z-index: 1000;
   -webkit-user-select: none;
-    user-select: none;
+  user-select: none;
 }
 header.sticky {
-  background: #010B11;
+  background: #010b11;
   padding: 20px 100px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
@@ -1599,9 +1598,6 @@ header .logo {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-}
-header.sticky .logo {
-  color: #fff;
 }
 header .logo .logo-type {
   width: 70%;
@@ -1628,9 +1624,10 @@ header .menu li {
   list-style: none;
 }
 .hero {
-  background-image: url(https://images.pexels.com/photos/615348/forest-fog-sunny-nature-615348.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-image: url(../images/pexels-lumn-167699.jpg);
   background-attachment: fixed;
   background-size: cover;
+  background-position: bottom;
 }
 header .menu li a {
   position: relative;
@@ -1652,7 +1649,7 @@ header .menu li a:active,
 }
 
 header.sticky ul li a {
-  color: #fff;
+  color: #111;
 }
 header.sticky {
   padding: 8px 50px;
@@ -1673,7 +1670,7 @@ header.sticky {
 .find-location input[type="text"] {
   width: 100%;
   padding: 20px 50px 20px 20px;
-  background: #010B11;
+  background: #010b11;
   color: white;
 }
 .find-location .action-local {
@@ -1697,7 +1694,27 @@ header.sticky {
   border-radius: 0 3px 17px 0;
   padding: 10px 10px;
 }
-
+.forecast-table.search-results,
+.forecast-table {
+  margin-bottom: 200px;
+}
+.forecast-table.search-results {
+  padding-top: 50px;
+  position: relative;
+  /* display: none; */
+}
+.forecast-table.search-results .title-result {
+  position: absolute;
+  top: -150px;
+  left: 85px;
+  padding: 10px;
+  background: #021622;
+  border-radius: 17px 3px 17px 3px;
+  text-align: center;
+}
+.forecast-table.search-results .container.border-result {
+  border-bottom: 2px solid;
+}
 .forecast-container {
   width: 100%;
   background: #021622;
@@ -1719,7 +1736,7 @@ header.sticky {
 @media screen and (max-width: 768px) {
   .forecast-container .forecast {
     display: block;
-    width: 50%;
+    width: calc(100% / 3);
     float: left;
   }
 }
@@ -1747,19 +1764,18 @@ header.sticky {
   padding-top: 30px;
   padding-bottom: 30px;
 }
-.forecast-container .forecast.today .location {
+.forecast-container .forecast.today .forecast-content .location {
   font-size: 18px;
   font-size: 1.2857142857em;
   font-weight: 400;
 }
-.forecast-container .forecast.today .degree .num,
-.forecast-container .forecast.today .degree .forecast-icon {
+.forecast-container .forecast.today .forecast-content .degree .num,
+.forecast-container .forecast.today .forecast-content .degree .forecast-icon {
   display: inline-block;
   vertical-align: middle;
 }
-.forecast-container .forecast.today .degree .num {
-  font-size: 90px;
-  font-size: 6.4285714286rem;
+.forecast-container .forecast.today .forecast-content .degree .num {
+  font-size: 5rem;
   margin-right: 30px;
 }
 .forecast-container .forecast.today span {
@@ -1781,30 +1797,36 @@ header.sticky {
   text-align: center;
   font-weight: 400;
 }
-.forecast-container .forecast .forecast-icon {
-  height: 50px;
-}
 .forecast-container .forecast .forecast-content {
-  padding: 50px 20px 10px;
+  padding: 33px 20px 10px;
   text-align: center;
 }
 .forecast-container .forecast .forecast-content .forecast-icon {
   margin-bottom: 20px;
+  height: 70px;
+}
+.forecast-container .forecast .forecast-content .forecast-icon > h3 {
+  height: 50%;
+}
+.forecast-container .forecast .forecast-content .forecast-icon .img-more {
+  height: 50%;
 }
 .forecast-container .forecast .forecast-content .degree {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
   font-size: 1.7142857143em;
   color: white;
   font-weight: 700;
 }
-.forecast-container .forecast .forecast-content small {
-  font-size: 16px;
-  font-size: 1.1428571429em;
+.forecast-container .forecast .forecast-content .degree-mar {
+  margin-top: 50px;
 }
-
+@media screen and (max-width: 1200px) {
+  .forecast-container .forecast .forecast-content .degree {
+    font-size: 1.3em;
+  }
+}
 .fullwidth-block {
   padding: 30vh;
 }
@@ -1821,18 +1843,18 @@ Account
 ****************************
 */
 
-.profile-card{
+.profile-card {
   width: 100%;
   text-align: center;
   overflow: hidden;
 }
 
-.card-header{
+.card-header {
   background: #021622;
   padding: 60px 40px;
 }
 
-.pic{
+.pic {
   display: inline-block;
   padding: 8px;
   background: linear-gradient(130deg, #009ad8, #f00606);
@@ -1842,100 +1864,100 @@ Account
   animation: animated-gradient 2s linear infinite;
 }
 
-@keyframes animated-gradient{
-  25%{
+@keyframes animated-gradient {
+  25% {
     background-position: left bottom;
   }
-  50%{
+  50% {
     background-position: right bottom;
   }
-  75%{
+  75% {
     background-position: right top;
   }
-  100%{
+  100% {
     background-position: left top;
   }
 }
 
-.pic img{
+.pic img {
   display: block;
   width: 100px;
   height: 100px;
   border-radius: 50%;
 }
 
-.name{
+.name {
   color: #f2f2f2;
   font-size: 28px;
   font-weight: 600;
   margin: 10px 0;
 }
 
-.bio{
+.bio {
   font-size: 18px;
   color: #009ad8;
 }
 
-.sm{
+.sm {
   display: flex;
   justify-content: center;
   margin: 20px 0;
 }
 
-.sm a{
+.sm a {
   color: #f2f2f2;
   width: 56px;
   font-size: 22px;
-  transition: .3s linear;
+  transition: 0.3s linear;
   text-decoration: none;
 }
 
-.sm a:hover{
+.sm a:hover {
   color: #009ad8;
 }
 
-.action-btn{
+.action-btn {
   display: inline-block;
   padding: 12px 30px;
   color: #009ad8;
   border: 2px solid #009ad8;
   border-radius: 6px;
   margin-top: 16px;
-  transition: .3s linear;
+  transition: 0.3s linear;
   font-weight: 400;
 }
 
-.action-btn:hover{
+.action-btn:hover {
   background: #009ad8;
   color: #f2f2f2;
   text-decoration: none;
 }
 
-.card-footer{
+.card-footer {
   background: #f4f4f4;
   padding: 60px 10px;
   font-weight: 400;
 }
 
-.numbers{
+.numbers {
   display: flex;
   align-items: center;
 }
 
-.item{
+.item {
   flex: 1;
   text-transform: uppercase;
   font-size: 13px;
   color: #e66767;
 }
 
-.item span{
+.item span {
   display: block;
   color: #2c3a47;
   font-size: 30px;
 }
 
-.border{
+.border {
   width: 1px;
   height: 30px;
   background: #bbb;
@@ -1946,10 +1968,10 @@ Account
   color: #009ad8;
   border: 2px solid #009ad8;
   border-radius: 6px;
-  transition: .3s linear;
+  transition: 0.3s linear;
   font-weight: 400;
 }
-.action-btn-close:hover{
+.action-btn-close:hover {
   background: #009ad8;
   color: #f2f2f2;
   text-decoration: none;
@@ -2103,8 +2125,5 @@ Contact
     background-size: 25px;
     cursor: pointer;
     transition: 0.2s;
-  }
-  header.sticky .toggle {
-    filter: invert(1);
   }
 }

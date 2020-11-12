@@ -9,27 +9,63 @@ const setupUI = (user) => {
       console.log(result.data().fullName);
       document.querySelector(".name").innerHTML = `${result.data().fullName}`;
       document.querySelector(".bio").innerHTML = `${result.data().bio}`;
+      document.querySelector("#fb").href = `${result.data().facebook}`;
+      document.querySelector("#ist").href = `${result.data().instagram}`;
+      document.querySelector("#twt").href = `${result.data().twitter}`;
     })(user.uid);
 
     document.querySelector("#edit-profile").addEventListener("click", () => {
-      let select = Number(prompt(`1: "Thay doi ho ten"\n2: "Thay doi bio`));
-      switch (select) {
-        case 1: {
-          let newName = prompt("Nhap ten moi: ");
-          alert(newName);
-          db.collection("Users").doc(user.uid).update({ fullName: newName });
-          document.querySelector(".name").innerHTML = `${newName}`;
-          break;
+      let select = Number(
+        prompt(
+          `1: Thay doi ho ten\n2: Thay doi Bio\n3: Thay doi link Facebook\n4: Thay doi link Twitter\n5: Thay doi link Instagram\n6: Dong`
+        )
+      );
+      while (true) {
+        let kt = true;
+        switch (select) {
+          case 1: {
+            let newName = prompt("Nhap ten moi: ");
+            alert(newName);
+            db.collection("Users").doc(user.uid).update({ fullName: newName });
+            document.querySelector(".name").innerHTML = `${newName}`;
+            break;
+          }
+          case 2: {
+            let newBio = prompt("Nhap bio moi: ");
+            db.collection("Users").doc(user.uid).update({ bio: newBio });
+            document.querySelector(".bio").innerHTML = `${newBio}`;
+            break;
+          }
+          case 3: {
+            let newFacebook = prompt("Nhap link Facebook moi: ");
+            db.collection("Users")
+              .doc(user.uid)
+              .update({ facebook: newFacebook });
+            document.querySelector("#fb").href = newFb;
+            break;
+          }
+          case 4: {
+            let newTwitter = prompt("Nhap link Twitter moi: ");
+            db.collection("Users")
+              .doc(user.uid)
+              .update({ twitter: newTwitter });
+            document.querySelector("#twt").href = newTwitter;
+            break;
+          }
+          case 5: {
+            let newInstagram = prompt("Nhap link Instagram moi: ");
+            db.collection("Users")
+              .doc(user.uid)
+              .update({ instagram: newInstagram });
+            document.querySelector("#ist").href = newInstagram;
+            break;
+          }
+          case 6: {
+            kt = false;
+            break;
+          }
         }
-        case 2: {
-          let newBio = prompt("Nhap bio moi: ");
-          db.collection("Users").doc(user.uid).update({ bio: newBio });
-          document.querySelector(".bio").innerHTML = `${newBio}`;
-          break;
-        }
-        default: {
-          alert("Nhap dung di tk ngu");
-        }
+        if (kt == false) break;
       }
     });
     //toggle UI elements

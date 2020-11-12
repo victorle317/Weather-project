@@ -80,8 +80,6 @@
 				<li><a href="./contact.html" onclick="toggleMenu()">Thông tin và Liên hệ</a></li>
 				<li><a href="./signin-signup.html" onclick="toggleMenu()" class="login-link-out">Đăng Nhập / Đăng Kí</a>
 				</li>
-				<li><a href="./signin-signup.html" onclick="toggleMenu()" id="logout" class="login-link-in">Đăng
-						Xuất</a></li>
 			</ul>
 		</header>
 
@@ -123,10 +121,21 @@
 				</div> -->
 			</div>
 		</div>
-		<div class="forecast-table">
+
+		<!--Đây là nơi hiện kết quả vừa search -->
+		<div class="forecast-table search-results">
+			<h3 class="title-result">Kết quả</h3>
+			<div class="container border-result">
+				<div class="forecast-container results">
+				</div>
+			</div>
+		</div>
+
+		<!--Đây là nơi hiện dữ liệu thời tiết của người dùng -->
+		<div class="forecast-table data-user">
 			<div class="container">
 				<div class="forecast-container">
-					<!-- <div class="today forecast">
+					<div class="today forecast">
 						<div class="forecast-header">
 							<div class="day">Hôm nay</div>
 							<div class="date">21/10/2020</div>
@@ -150,11 +159,10 @@
 						</div> 
 						<div class="forecast-content">
 							<div class="forecast-icon">
-								<h3>mưa to</h3>
-								<img src="images/icons/icon-3.svg" alt="" width=48>
+								<h3>Mưa rat rat rat la to nhaaaa aaaaaaaaaa </h3>
+								<img src="images/icons/icon-3.svg" alt="" width=48 class="img-more">
 							</div>
-							<div class="degree">23<sup>o</sup>C</div>
-							<small>18<sup>o</sup></small>
+							<div class="degree degree-mar">23<sup>o</sup>C</div>
 						</div>
 					</div>
 					<div class="forecast">
@@ -163,12 +171,12 @@
 						</div>
 						<div class="forecast-content">
 							<div class="forecast-icon">
-								<img src="images/icons/icon-13.svg" alt="" width=48>
+								<h3>Mưa to</h3>
+								<img src="images/icons/icon-13.svg" alt="" width=48 class="img-more">
 							</div>
-							<div class="degree">23<sup>o</sup>C</div>
-							<small>18<sup>o</sup></small>
+							<div class="degree degree-mar">23<sup>o</sup>C</div>
 						</div>
-					</div> -->
+					</div>
 				</div>
 			</div>
 		</div>
@@ -183,15 +191,15 @@
 							<div class="pic">
 								<img src="https://d11a6trkgmumsb.cloudfront.net/original/3X/d/8/d8b5d0a738295345ebd8934b859fa1fca1c8c6ad.jpeg" alt="">
 							</div>
-							<div class="name" id="name-user"></div>
+							<div class="name" id="name-user">Tên người dùng</div>
 							<div class="bio">Note</div>
 							<div class="sm">
-								<a href="#" class="fab fa-facebook-f"></a>
-								<a href="#" class="fab fa-twitter"></a>
-								<a href="#" class="fab fa-instagram"></a>
+								<a href="#" class="fab fa-facebook-f" id="fb" target="__blank"></a>
+								<a href="#" class="fab fa-twitter" id="twt" target="__blank"></a>
+								<a href="#" class="fab fa-instagram" id="ist" target="__blank"></a>
 							</div>
 							<a href="#" class="action-btn" id="edit-profile">Thay đổi thông tin</a>
-							<a href="#" class="action-btn">Đăng Xuất</a>
+							<a href="#" class="action-btn" id="logout" class="login-link-out">Đăng Xuất</a>
 						</div>
 						<div class="card-footer">
 							<div class="numbers">
