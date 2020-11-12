@@ -1863,6 +1863,9 @@ Account
   background-size: 200% 200%;
   animation: animated-gradient 2s linear infinite;
 }
+.pic > img {
+  object-fit: cover;
+}
 
 @keyframes animated-gradient {
   25% {
