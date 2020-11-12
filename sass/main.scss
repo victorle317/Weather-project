@@ -52,3 +52,7 @@ input:-webkit-autofill:focus {
   border-radius: 20px 3px 0px 3px;
   transition: border-radius,linear,0.7s;
 }
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
