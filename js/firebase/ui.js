@@ -55,7 +55,6 @@ const setupUI = (user) => {
           break;
         }
         case 6: {
-          kt = false;
           break;
         }
       }
