@@ -85,7 +85,7 @@
 		</header>
 
 
-		
+
 		<div class="hero">
 			<div class="container searchbox">
 				<form action="#" class="find-location">
@@ -125,23 +125,62 @@
 
 		<!--Đây là nơi hiện kết quả vừa search -->
 		<div class="forecast-table search-results">
-			<div class="container border-result" style="position: relative;">
-				<h3 class="title-result" style="
-				top: -50px;
-				left: 15px;
-				position: absolute;
-				padding: 10px;
-    background: #021622;
-    border-radius: 17px 3px 17px 3px;
-    text-align: center;">Kết quả</h3>
+			<div class="container border-result">
+				<h3 class="title-result">Kết quả</h3>
 				<div class="forecast-container results">
 				</div>
 			</div>
 		</div>
-
+		<br><br>
 		<!--Đây là nơi hiện dữ liệu thời tiết của người dùng -->
 		<div class="forecast-table data-user">
 			<div class="container">
+				<h3 class="title-result">Đang theo dõi</h3>
+				<div class="forecast-container">
+					<div class="today forecast">
+						<div class="forecast-header">
+							<div class="day">Hôm nay</div>
+							<div class="date">21/10/2020</div>
+						</div>
+						<div class="forecast-content">
+							<div class="location">Ha Noi</div>
+							<div class="degree">
+								<div class="num">23<sup>o</sup>C</div>
+								<div class="forecast-icon">
+									<img src="images/icons/icon-1.svg" alt="" width=90>
+								</div>
+							</div>
+							<span><img src="images/icon-umberella.png" alt="">20%</span>
+							<span><img src="images/icon-wind.png" alt="">18km/h</span>
+							<span><img src="images/icon-compass.png" alt="">Mưa nhỏ</span>
+						</div>
+					</div>
+					<div class="forecast">
+						<div class="forecast-header">
+							<div class="day">22/10/2020</div>
+						</div>
+						<div class="forecast-content">
+							<div class="forecast-icon">
+								<h3>Mưa nang hat</h3>
+								<img src="images/icons/icon-3.svg" alt="" width=48 class="img-more">
+							</div>
+							<div class="degree degree-mar">23<sup>o</sup>C</div>
+						</div>
+					</div>
+					<div class="forecast">
+						<div class="forecast-header">
+							<div class="day">23/10/2020</div>
+						</div>
+						<div class="forecast-content">
+							<div class="forecast-icon">
+								<h3>Mưa to</h3>
+								<img src="images/icons/icon-13.svg" alt="" width=48 class="img-more">
+							</div>
+							<div class="degree degree-mar">23<sup>o</sup>C</div>
+						</div>
+					</div>
+				</div>
+				<br><br><br><br><br><br>
 				<div class="forecast-container">
 					<div class="today forecast">
 						<div class="forecast-header">
@@ -191,7 +230,8 @@
 
 		<!-- Modal Info User -->
 		<div class="modal fade" id="info-user" data-backdrop="static" data-keyboard="false" tabindex="-1"
-			aria-labelledby="staticBackdropLabel" aria-hidden="true" style = "overflow: hidden!important;overflow-y: unset;">
+			aria-labelledby="staticBackdropLabel" aria-hidden="true"
+			style="overflow: hidden!important;overflow-y: unset;">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content" style="background: #ffffff00">
 					<div class="profile-card">
@@ -208,7 +248,7 @@
 								<a href="#" class="fab fa-instagram" id="ist" target="__blank"></a>
 							</div>
 							<a href="#" id="edit-profile" class="action-btn">Thay đổi thông tin</a>
-							<a href="#" id="logout" class="action-btn login-link-out">Đăng Xuất</a>
+							<a href="#" id="logout" class="action-btn">Đăng Xuất</a>
 						</div>
 						<div class="card-footer">
 							<div class="numbers">
@@ -224,9 +264,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="modal-footer d-flex justify-content-center" style="background: #f4f4f4;
-    height: 7rem;
-    margin-top: -10px;">
+					<div class="modal-footer d-flex justify-content-center"
+						style="background: #f4f4f4; height: 7rem; margin-top: -10px;">
 						<button type="button" class="action-btn-close" data-dismiss="modal">Đóng</button>
 					</div>
 				</div>
@@ -237,7 +276,7 @@
 		<div class="modal fade" id="info-contact" data-backdrop="static" data-keyboard="false" tabindex="-1"
 			aria-labelledby="staticBackdropLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
+				<div class="modal-content modal-content-edit">
 					<div class="info-contact-card">
 						<h2 class="section-title">Thông tin liên hệ</h2>
 						<div class="contact-info">
@@ -253,22 +292,26 @@
 						</div>
 						<div class="border-end"></div>
 						<h2 class="section-title">Liên hệ với chúng tôi</h2>
-						<form action="#" class="contact-form">
+						<form action="#" class="contact-form" id="contact-form">
 							<div class="row">
-								<div class="col-md-6"><input type="text" placeholder="Tên của bạn..."></div>
-								<div class="col-md-6"><input type="text" placeholder="Địa chỉ Email..."></div>
+								<div class="col-md-6"><input id="contact-name" type="text" placeholder="Tên của bạn...">
+								</div>
+								<div class="col-md-6"><input id="contact-email" type="text"
+										placeholder="Địa chỉ Email..."></div>
 							</div>
 							<div class="row">
-								<div class="col-md-6"><input type="text" placeholder="Số điện thoại..."></div>
-								<div class="col-md-6"><input type="text" placeholder="Website (Nếu có)..."></div>
+								<div class="col-md-6"><input id="contact-phone" type="text"
+										placeholder="Số điện thoại..."></div>
+								<div class="col-md-6"><input id="contact-web" type="text"
+										placeholder="Website (Nếu có)..."></div>
 							</div>
-							<textarea name="" placeholder="Vấn đề hoặc góp ý..."></textarea>
+							<textarea name="" placeholder="Vấn đề hoặc góp ý..." id="contact-messenge"></textarea>
 							<div class="text-right">
 								<input type="submit" placeholder="Gửi">
 							</div>
 						</form>
 					</div>
-					<div class="modal-footer">
+					<div class="modal-footer d-flex justify-content-center">
 						<button type="button" class="action-btn-close" data-dismiss="modal">Đóng</button>
 					</div>
 				</div>

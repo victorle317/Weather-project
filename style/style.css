@@ -1703,18 +1703,23 @@ header.sticky {
   position: relative;
   /* display: none; */
 }
-.forecast-table.search-results .title-result {
-  position: absolute;
-  top: -150px;
-  left: 85px;
-  padding: 10px;
-  background: #021622;
-  border-radius: 17px 3px 17px 3px;
-  text-align: center;
+.forecast-table.search-results .title-result, .forecast-table.data-user .title-result {
+    top: -50px;
+		left: 15px;
+		position: absolute;
+		padding: 10px;
+    background: #021622;
+    border-radius: 17px 3px 17px 3px;
+    text-align: center;
 }
 .forecast-table.search-results .container.border-result {
+  position: relative;
   border-bottom: 2px solid;
 }
+.forecast-table.data-user .container {
+  position: relative;
+}
+
 .forecast-container {
   width: 100%;
   background: #021622;
@@ -1736,7 +1741,7 @@ header.sticky {
 @media screen and (max-width: 768px) {
   .forecast-container .forecast {
     display: block;
-    width: calc(100% / 3);
+    width: calc(100% / 2);
     float: left;
   }
 }
@@ -1985,12 +1990,14 @@ Account
 Contact
 ****************************
 */
-
+.modal-content-edit {
+  border: none;
+}
 .info-contact-card {
   background: #010b11;
 }
-.info-contact-card .contact-info,
 .info-contact-card .section-title,
+.info-contact-card .contact-info,
 .info-contact-card .contact-form {
   padding: 30px 30px 20px 30px;
   width: 100%;
@@ -2014,6 +2021,10 @@ Contact
 }
 .info-contact-card .section-title {
   margin: 0;
+}
+.info-contact-card .contact-form,
+.info-contact-card .contact-info {
+  padding-top: 1px;
 }
 .contact-form [class*="col"] {
   padding: 0 5px;
@@ -2141,4 +2152,16 @@ Contact
     cursor: pointer;
     transition: 0.2s;
   }
+}
+@media (max-width: 323px) {
+  .forecast-container .forecast.today .forecast-content .degree .num {
+    font-size: 3em;
+  }
+  .forecast-container .forecast .forecast-content {
+    padding: 10px 20px;
+  }
+  .forecast-container .forecast .forecast-content .degree-mar {
+    font-size: 1em;
+  }
+
 }
