@@ -1985,7 +1985,9 @@ Account
 Contact
 ****************************
 */
-
+.modal-content-edit {
+  border: none;
+}
 .info-contact-card {
   background: #010b11;
 }
