@@ -1649,7 +1649,7 @@ header .menu li a:active,
 }
 
 header.sticky ul li a {
-  color: #111;
+  color: #fff;
 }
 header.sticky {
   padding: 8px 50px;
@@ -2107,6 +2107,9 @@ Contact
   }
   header .menu li a:active {
     background: yellowgreen;
+  }
+  header.sticky ul li a {
+    color: #111;
   }
   .toggle {
     width: 40px;
