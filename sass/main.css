@@ -60,4 +60,9 @@ input:-webkit-autofill:focus {
   -webkit-transition: border-radius,linear,0.7s;
   transition: border-radius,linear,0.7s;
 }
+
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 /*# sourceMappingURL=main.css.map */

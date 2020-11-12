@@ -50,7 +50,7 @@
 
 <body>
 	<!-- Loader -->
-	<div class="fixed-top loader-wrapper ">
+	<div class="fixed-top loader-wrapper d-none ">
 		<lottie-player id="firstLottie" background="transparent" speed="1" loop autoplay mode="normal"></lottie-player>
 		<script src="./Data/Animation.js"></script>
 		<script>
@@ -125,8 +125,15 @@
 
 		<!--Đây là nơi hiện kết quả vừa search -->
 		<div class="forecast-table search-results">
-			<h3 class="title-result">Kết quả</h3>
-			<div class="container border-result">
+			<div class="container border-result" style="position: relative;">
+				<h3 class="title-result" style="
+				top: -50px;
+				left: 15px;
+				position: absolute;
+				padding: 10px;
+    background: #021622;
+    border-radius: 17px 3px 17px 3px;
+    text-align: center;">Kết quả</h3>
 				<div class="forecast-container results">
 				</div>
 			</div>
@@ -184,9 +191,9 @@
 
 		<!-- Modal Info User -->
 		<div class="modal fade" id="info-user" data-backdrop="static" data-keyboard="false" tabindex="-1"
-			aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			aria-labelledby="staticBackdropLabel" aria-hidden="true" style = "overflow: hidden!important;overflow-y: unset;">
 			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
+				<div class="modal-content" style="background: #ffffff00">
 					<div class="profile-card">
 						<div class="card-header">
 							<div class="pic">
@@ -217,7 +224,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="modal-footer">
+					<div class="modal-footer d-flex justify-content-center" style="background: #f4f4f4;
+    height: 7rem;
+    margin-top: -10px;">
 						<button type="button" class="action-btn-close" data-dismiss="modal">Đóng</button>
 					</div>
 				</div>

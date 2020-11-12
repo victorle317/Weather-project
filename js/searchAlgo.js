@@ -156,7 +156,7 @@ async function GetWeatherForecast(event, element, LocationDetail) {
     console.log(id);
     await axios
       .get(
-        `http://api.weatherapi.com/v1/forecast.json?key=7b5133a15d544fd2938162305201910&q=${id}&days=7`
+        `http://api.weatherapi.com/v1/forecast.json?key=7b5133a15d544fd2938162305201910&q=${id}&days=2`
       )
       .then(function (response) {
         console.log(response.data);
@@ -175,7 +175,7 @@ async function GetWeatherForecast(event, element, LocationDetail) {
   if (LocationDetail) {
     await axios
       .get(
-        `http://api.weatherapi.com/v1/forecast.json?key=7b5133a15d544fd2938162305201910&q=${LocationDetail.latitude},${LocationDetail.longitude}&days=7`
+        `http://api.weatherapi.com/v1/forecast.json?key=7b5133a15d544fd2938162305201910&q=${LocationDetail.latitude},${LocationDetail.longitude}&days=2`
       )
       .then(function (response) {
         console.log(response.data);
