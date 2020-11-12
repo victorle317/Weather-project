@@ -47,6 +47,8 @@ html {
 body {
   margin: 0;
   padding: 0;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 a {
@@ -1637,17 +1639,25 @@ header .menu li a {
   color: #fff;
   text-decoration: none;
   transition: 0.5s;
-  border-radius: 2px;
+  border: 3px solid #ffffff00;
+  border-radius: 17px 3px;
 }
 
 header .menu li a:hover,
-header .menu li a:active,
-.here {
+header .menu li a:active {
   transition: 0.5s;
-  background: #009ad8;
+  border: 3px solid #009ad8;
   color: #fff;
 }
+header .menu li a:active {
+  background: #009ad8;
+}
 
+.here {
+  transition: 0.5s;
+  background-color: #009ad8;
+  color: #fff;
+}
 header.sticky ul li a {
   color: #fff;
 }
@@ -1679,9 +1689,14 @@ header.sticky {
   right: 5px;
   bottom: 5px;
   padding: 0 63.6px;
-  width: 210px;
+  width: 220px;
   display: flex;
   flex-direction: row;
+}
+.find-location .action-local input[type="submit"]:first-child,
+.find-location .action-local input[type="submit"]:last-child {
+  border: 3px solid #ffffff00;
+  transition: all 0.3s linear;
 }
 .find-location .action-local input[type="submit"]:first-child {
   width: 100px;
@@ -1694,6 +1709,19 @@ header.sticky {
   border-radius: 0 3px 17px 0;
   padding: 10px 10px;
 }
+.find-location .action-local input[type="submit"]:first-child:hover {
+  background: none;
+  border: 3px solid #009ad8;
+  border-right: 1px solid #009ad8;
+}
+.find-location .action-local input[type="submit"]:last-child:hover {
+  background: none;
+  border: 3px solid #009ad8;
+}
+.find-location .action-local input[type="submit"]:first-child:active,
+.find-location .action-local input[type="submit"]:last-child:active {
+  background: #009ad8;
+}
 .forecast-table.search-results,
 .forecast-table {
   margin-bottom: 200px;
@@ -1703,14 +1731,39 @@ header.sticky {
   position: relative;
   /* display: none; */
 }
-.forecast-table.search-results .title-result, .forecast-table.data-user .title-result {
-    top: -50px;
-		left: 15px;
-		position: absolute;
-		padding: 10px;
-    background: #021622;
-    border-radius: 17px 3px 17px 3px;
-    text-align: center;
+.forecast-table.search-results .title-result,
+.forecast-table.data-user .title-result {
+  top: -50px;
+  left: 15px;
+  position: absolute;
+  padding: 10px;
+  background: #021622;
+  border-radius: 17px 3px 17px 3px;
+  text-align: center;
+}
+.forecast-table.search-results .add-result {
+  top: -50px;
+  right: 15px;
+  position: absolute;
+  padding: 6.5px;
+  background: #021622;
+  border-radius: 17px 3px 17px 3px;
+  text-align: center;
+  color: #bfc1c8;
+  border: 3px solid #ffffff00;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1.17em;
+  transition: all 0.3s linear;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.forecast-table.search-results .add-result:hover {
+  border: 3px solid #009ad8;
+  transition: all 0.3s linear;
+}
+.forecast-table.search-results .add-result:active {
+  background: #009ad8;
 }
 .forecast-table.search-results .container.border-result {
   position: relative;
@@ -2123,6 +2176,7 @@ Contact
   header .menu.active {
     right: 0;
   }
+
   header .menu li a {
     color: #111;
     font-size: 24px;
@@ -2163,5 +2217,4 @@ Contact
   .forecast-container .forecast .forecast-content .degree-mar {
     font-size: 1em;
   }
-
 }
