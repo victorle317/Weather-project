@@ -8,10 +8,10 @@ let addressUser = (user) => {
         let getDataAddressCollection = await addressCollection.get();
         let dataFind = getDataAddressCollection.data();
         var numberAll = Object.keys(dataFind).length;
-        let lon = Number(prompt("lon = "));
-        let lat = Number(prompt("lat = "));
         //add lon and lat
-        addressCollection.update({ [`${numberAll}`]: [lon, lat] });
+        addressCollection.update({
+          [`${numberAll}`]: [LocationDetail.latitude, LocationDetail.longitude],
+        });
       })(user.uid);
     }
   });

@@ -1722,8 +1722,7 @@ header.sticky {
 .find-location .action-local input[type="submit"]:last-child:active {
   background: #009ad8;
 }
-.forecast-table.search-results,
-.forecast-table {
+.forecast-table.search-results{
   margin-bottom: 200px;
 }
 .forecast-table.search-results {
@@ -2207,6 +2206,21 @@ Contact
     transition: 0.2s;
   }
 }
+@media (max-width: 992px) {
+  .forecast-container .forecast.today {
+    width: 387px;
+  }
+}
+
+@media (max-width: 769px) {
+  .forecast-container .forecast.today {
+    width: 100%;
+  }
+  .forecast-container .forecast.today span {
+    padding-top: 10px;
+  }
+}
+
 @media (max-width: 323px) {
   .forecast-container .forecast.today .forecast-content .degree .num {
     font-size: 3em;

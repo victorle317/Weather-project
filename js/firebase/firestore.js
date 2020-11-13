@@ -3,9 +3,11 @@ let getData = (check, user) => {
   if (check == true) {
     setupUI(user);
     addressUser(user);
+    showInfoAddress(user);
   } else {
     setupUI();
     addressUser("");
+    showInfoAddress();
   }
 };
 

@@ -58,6 +58,8 @@ function render(datas) {
     //   console.log(li);
     //   console.log(a);
     myMenu.appendChild(li);
+    LocationDetail.longitude = place.lat;
+    LocationDetail.latitude = place.lon;
   });
 }
 
@@ -121,7 +123,6 @@ async function SearchByGPSAPICall(LocationDetail) {
       `http://api.weatherapi.com/v1/search.json?key=7b5133a15d544fd2938162305201910&q=${LocationDetail.latitude},${LocationDetail.longitude}&lang=vi`
     )
     .then(function (response) {
-      console.log('tim',response.data);
       let data = response.data;
       if (data.length === 0) {
         alert(
@@ -153,14 +154,13 @@ async function GetWeatherForecast(event, element, LocationDetail) {
   // nếu người dùng click vào search result thì chạy vế if element
   if (element) {
     id = element.getAttribute("id");
-    console.log(id);
     await axios
       .get(
-        `http://api.weatherapi.com/v1/forecast.json?key=7b5133a15d544fd2938162305201910&q=${id}&days=2`
+        `http://api.weatherapi.com/v1/forecast.json?key=7b5133a15d544fd2938162305201910&q=${id}&days=3`
       )
       .then(function (response) {
-        console.log(response.data);
-        console.log(response);
+        // console.log(response.data);
+        // console.log(response);
         let data = response.data;
         template.render(data);
       })
@@ -175,11 +175,11 @@ async function GetWeatherForecast(event, element, LocationDetail) {
   if (LocationDetail) {
     await axios
       .get(
-        `http://api.weatherapi.com/v1/forecast.json?key=7b5133a15d544fd2938162305201910&q=${LocationDetail.latitude},${LocationDetail.longitude}&days=2`
+        `http://api.weatherapi.com/v1/forecast.json?key=7b5133a15d544fd2938162305201910&q=${LocationDetail.latitude},${LocationDetail.longitude}&days=3`
       )
       .then(function (response) {
-        console.log(response.data);
-        console.log(response);
+        // console.log(response.data);
+        // console.log(response);
         let data = response.data;
         template.render(data);
       })
@@ -190,6 +190,23 @@ async function GetWeatherForecast(event, element, LocationDetail) {
         console.log("success");
       });
   }
+}
+// Get JSON API
+async function getJSONAPI(lat, lon) {
+  await axios
+    .get(
+      `http://api.weatherapi.com/v1/forecast.json?key=7b5133a15d544fd2938162305201910&q=${lat},${lon}&days=3`
+    )
+    .then((response) => {
+      let data = response.data;
+      template.renderVer2(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .then(() => {
+      console.log("Nice sừuuu");
+    });
 }
 
 //Hàm này sẽ chạy đầu tiên khi load page, chức năng: lấy toạ độ, gọi API và render địa điểm hiện tại

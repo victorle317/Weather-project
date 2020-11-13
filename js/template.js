@@ -1958,12 +1958,21 @@ template.render = function (data) {
     ".forecast-container.results"
   );
 
+  let date = new Date();
   // lấy dự liệu ngày hôm nay
-  html = this.today(data.location, data.current);
+  html = this.today(data.location, data.current, date);
 
   //lặp qua các ngày rồi gắn vào html (nháp)
+  let index = 0;
+  let strDate = "";
   data.forecast.forecastday.forEach((aSingleDay) => {
-    html += this.forecast(aSingleDay);
+    if (index > 0) {
+      strDate = `${date.getDate() + index}/${
+        date.getMonth() + 1
+      }/${date.getFullYear()}`;
+      html += this.forecast(aSingleDay, strDate);
+    }
+    index++;
   });
   // console.log(
   // 	forcastContainer
@@ -1975,14 +1984,42 @@ template.render = function (data) {
 
   // console.log(this.forcastTable)
 };
+template.renderVer2 = function (data) {
+  var htmlResult = "";
+  let forcastContainerUserData = document.querySelector(
+    ".forecast-table.data-user .container"
+  );
+  let date = new Date();
+  htmlResult = this.today(data.location, data.current, date);
+
+  let index = 0;
+  let strDate = "";
+  data.forecast.forecastday.forEach((aSingleDay) => {
+    if (index > 0) {
+      strDate = `${date.getDate() + index}/${
+        date.getMonth() + 1
+      }/${date.getFullYear()}`;
+      htmlResult += this.forecast(aSingleDay, strDate);
+    }
+    index++;
+  });
+  htmlResult = `<div class="forecast-container user-containers"> ${htmlResult}</div>
+				  <br><br><br><br><br><br>`;
+  let currentData = forcastContainerUserData.innerHTML;
+  currentData += htmlResult;
+  console.log(currentData);
+  forcastContainerUserData.innerHTML = currentData;
+  //   forcastContainerUserData.innerHTML =
+  //     forcastContainerUserData.innerHTML + htmlResult;
+};
 
 // cấu trúc data và html có 2 phần 1 phần today 1 phần forecast, tách ra làm 2 hàm như dưới
 // hàm today nhận giá trị địa điểm và current xong trả về cái string
-template.today = function (location, current) {
+template.today = function (location, current, date) {
   let htmlPresent = `       <div class="today forecast">
 								<div class="forecast-header">
 									<div class="day">Today</div>
-									<div class="date">${location.localtime}</div>
+									<div class="date">${date.toLocaleDateString()}</div>
 								</div> <!-- .forecast-header -->
 							<div class="forecast-content">
 									<div class="location"> ${location.name},${location.country}</div>
@@ -2002,19 +2039,27 @@ template.today = function (location, current) {
 
 //forecast.forcastday.foreach
 // hàm này trả về giá trị forecast cho MỘT ngày
-template.forecast = function (aSingleDay) {
+template.forecast = function (aSingleDay, strDate) {
   return `<div class="forecast">
 						<div class="forecast-header">
-							<div class="day">${aSingleDay.date}</div>
+							<div class="day">${strDate}</div>
 						</div> <!-- .forecast-header -->
 						<div class="forecast-content">
 							<div class="forecast-icon">
 							    <h3>${aSingleDay.day.condition.text}</h3>
 								<img src="${aSingleDay.day.condition.icon}" alt="" width=48>
 							</div>
-							<div class="degree degree-mar">${aSingleDay.day.maxtemp_c}-${aSingleDay.day.mintemp_c}<sup>o</sup>C</div>
+							<div class="degree degree-mar">${aSingleDay.day.mintemp_c}-${aSingleDay.day.maxtemp_c}<sup>o</sup>C</div>
 						</div>
 					</div>`;
 };
 
 // template.render(tempData)
+
+//
+template.showData = (data) => {
+  Object.keys(data).forEach((key) => {
+    let dataLocation = data[key];
+    getJSONAPI(dataLocation[0], dataLocation[1]);
+  });
+};
