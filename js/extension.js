@@ -31,6 +31,18 @@ let changeNameWeather = (name) => {
       };
       return item;
     }
+    case "Clear": {
+        item = {
+          nameWeather: "Trời quang",
+          nameIcon: "icon-8",
+          suggestWeather: {
+            suggestFood: "Phở,thịt nướng,chả quạt,lẩu",
+            suggestAddress: "Đi cắm trại,thích hợp các hoạt độnng ngoài trời",
+            recommend: "Thích hợp các hoạt động ngoài trời",
+          },
+        };
+        return item;
+      }
 
     case "Cloudy": {
       item = {
