@@ -1834,6 +1834,11 @@ header.sticky {
 .forecast-container .forecast.today .forecast-content .degree .num {
   font-size: 5rem;
   margin-right: 30px;
+  width: 70%;
+  text-align: center;
+}
+.forecast-container .forecast.today .forecast-content .degree .forecast-icon {
+  width: 30%;
 }
 .forecast-container .forecast.today span {
   margin-right: 20px;

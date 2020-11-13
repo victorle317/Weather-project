@@ -7,10 +7,33 @@
     <title>Document</title>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="./style/sign.css">
+    <style>
+		.loader-wrapper {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			background-color: white;
+			width: 100vw;
+			height: 100vh;
+			z-index: 1031;
+		}
 
+		#firstLottie {
+			width: 25vw;
+			height: 25vh;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+			margin: auto;
+		}
+	</style>
 </head>
 
 <body>
+	
     <section>
         <div class="container">
             <div class="user sign-in-box">
@@ -31,6 +54,9 @@
                         </div>
                         <p class="sign-up">Bạn chưa có tài khoản ?
                             <a href="" class="toggleFunc">Đăng kí</a>
+                        </p>
+                        <p class="sign-up">
+                            <a href="">Quên mật khẩu ?</a>
                         </p>
                     </form>
                 </div>

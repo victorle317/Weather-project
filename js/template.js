@@ -2007,7 +2007,6 @@ template.renderVer2 = function (data) {
 				  <br><br><br><br><br><br>`;
   let currentData = forcastContainerUserData.innerHTML;
   currentData += htmlResult;
-  console.log(currentData);
   forcastContainerUserData.innerHTML = currentData;
   //   forcastContainerUserData.innerHTML =
   //     forcastContainerUserData.innerHTML + htmlResult;

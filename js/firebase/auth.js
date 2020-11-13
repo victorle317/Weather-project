@@ -1,3 +1,9 @@
+let enterSignUp = document.querySelector("#signup-repassword");
+enterSignUp.addEventListener("keyup", (e) => {
+  if (e.keyCode === 13) {
+    $btnSignUp.click();
+  }
+});
 // Sign up
 const $btnSignUp = document.querySelector("#btn-signup");
 
@@ -8,7 +14,6 @@ $btnSignUp.addEventListener("click", (e) => {
   let email = $signupForm["signup-email"].value;
   let password = $signupForm["signup-password"].value;
   let rePassword = $signupForm["signup-repassword"].value;
-  console.log(email, password, rePassword, $signupForm["signup-name"].value);
   let fName = $signupForm["signup-name"].value;
   if (password != rePassword) {
     alert("Xác nhận mật khẩu chưa đúng !");
@@ -36,6 +41,12 @@ $btnSignUp.addEventListener("click", (e) => {
   }
 });
 
+let enterLogIn = document.querySelector("#login-password");
+enterLogIn.addEventListener("keyup", (e) => {
+  if (e.keyCode === 13) {
+    $btnLogin.click();
+  }
+});
 //Sign In
 const $btnLogin = document.querySelector("#btn-login");
 $btnLogin.addEventListener("click", (e) => {

@@ -7,6 +7,8 @@ var LocationDetail = {
   longitude: null,
 };
 var getLocationIsClicked = false;
+var latSearch = null;
+var lonSearch = null;
 
 function getLocation(e) {
   if (e) {
@@ -23,7 +25,7 @@ function getLocation(e) {
 function showPosition(position) {
   LocationDetail.longitude = position.coords.longitude;
   LocationDetail.latitude = position.coords.latitude;
-  console.log(LocationDetail);
+  // console.log(LocationDetail);
   myFunction();
 }
 
@@ -58,8 +60,6 @@ function render(datas) {
     //   console.log(li);
     //   console.log(a);
     myMenu.appendChild(li);
-    LocationDetail.longitude = place.lat;
-    LocationDetail.latitude = place.lon;
   });
 }
 
@@ -154,6 +154,15 @@ async function GetWeatherForecast(event, element, LocationDetail) {
   // nếu người dùng click vào search result thì chạy vế if element
   if (element) {
     id = element.getAttribute("id");
+    //lay ra lat lon khi click vao dia chi o Search, sang addUserAddress.js
+    for (let i = 0; i < id.length; i++) {
+      if (id[i] === ",") {
+        latSearch = id.slice(0, i);
+        lonSearch = id.slice(i + 1, id.length);
+        break;
+      }
+    }
+
     await axios
       .get(
         `http://api.weatherapi.com/v1/forecast.json?key=7b5133a15d544fd2938162305201910&q=${id}&days=3`
