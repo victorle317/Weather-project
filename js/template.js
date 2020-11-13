@@ -2017,7 +2017,7 @@ template.renderVer2 = function (data) {
 template.today = function (location, current, date) {
   let htmlPresent = `       <div class="today forecast">
 								<div class="forecast-header">
-									<div class="day">Today</div>
+									<div class="day">Hôm nay</div>
 									<div class="date">${date.toLocaleDateString()}</div>
 								</div> <!-- .forecast-header -->
 							<div class="forecast-content">
@@ -2025,16 +2025,17 @@ template.today = function (location, current, date) {
 								<div class="degree">
 									<div class="num">${current.temp_c}<sup>o</sup>C</div>
 									<div class="forecast-icon">
-										<img src="${current.condition.icon}" alt="" width=90>
+										<img src="images/icons/${changeNameWeather(current.condition.text).nameIcon}.svg" alt="" width=90>
 									</div>
 									</div>
 								<span><img src="images/icon-umberella.png" alt="">${current.humidity}%</span>
 								<span><img src="images/icon-wind.png" alt="">${current.wind_kph}km/h</span>
-								<span><img src="images/icon-compass.png" alt="">${current.condition.text}</span>
+								<span><img src="images/icon-compass.png" alt="">${changeNameWeather(current.condition.text).nameWeather}</span>
 								</div>
 							</div>`;
   return htmlPresent;
 };
+
 
 //forecast.forcastday.foreach
 // hàm này trả về giá trị forecast cho MỘT ngày
@@ -2045,13 +2046,14 @@ template.forecast = function (aSingleDay, strDate) {
 						</div> <!-- .forecast-header -->
 						<div class="forecast-content">
 							<div class="forecast-icon">
-							    <h3>${aSingleDay.day.condition.text}</h3>
-								<img src="${aSingleDay.day.condition.icon}" alt="" width=48>
+							    <h3>${changeNameWeather(aSingleDay.day.condition.text).nameWeather}</h3>
+								<img src="images/icons/${changeNameWeather(aSingleDay.day.condition.text).nameIcon}.svg" alt="" width=48>
 							</div>
 							<div class="degree degree-mar">${aSingleDay.day.mintemp_c}-${aSingleDay.day.maxtemp_c}<sup>o</sup>C</div>
 						</div>
 					</div>`;
 };
+
 
 // template.render(tempData)
 

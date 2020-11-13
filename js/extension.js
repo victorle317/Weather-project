@@ -1,6 +1,8 @@
 let suggestWeather = { suggestFood: "", suggestAddress: "", recommend: "" };
 let item = { nameWeather: "", nameIcon: "", suggestWeather };
 
+
+//Hàm mở rộng gợi ý ăn uống đi chơi,chuyển tên sang tiếng việtviệt
 let changeNameWeather = (name) => {
   switch (name) {
     case "Sunny": {
