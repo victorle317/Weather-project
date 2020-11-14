@@ -1722,7 +1722,7 @@ header.sticky {
 .find-location .action-local input[type="submit"]:last-child:active {
   background: #009ad8;
 }
-.forecast-table.search-results{
+.forecast-table.search-results {
   margin-bottom: 200px;
 }
 .forecast-table.search-results {
@@ -1730,8 +1730,7 @@ header.sticky {
   position: relative;
   /* display: none; */
 }
-.forecast-table.search-results .title-result,
-.forecast-table.data-user .title-result {
+.forecast-table .title-result {
   top: -50px;
   left: 15px;
   position: absolute;
@@ -1740,7 +1739,8 @@ header.sticky {
   border-radius: 17px 3px 17px 3px;
   text-align: center;
 }
-.forecast-table.search-results .add-result {
+.forecast-table.search-results .add-result,
+.forecast-table.data-user .edit-data {
   top: -50px;
   right: 15px;
   position: absolute;
@@ -1757,13 +1757,16 @@ header.sticky {
   -webkit-user-select: none;
   user-select: none;
 }
-.forecast-table.search-results .add-result:hover {
+.forecast-table.search-results .add-result:hover,
+.forecast-table.data-user .edit-data:hover {
   border: 3px solid #009ad8;
   transition: all 0.3s linear;
 }
-.forecast-table.search-results .add-result:active {
+.forecast-table.search-results .add-result:active,
+.forecast-table.data-user .edit-data:active {
   background: #009ad8;
 }
+
 .forecast-table.search-results .container.border-result {
   position: relative;
   border-bottom: 2px solid;
@@ -2042,6 +2045,18 @@ Account
   text-decoration: none;
 }
 
+.edit-table {
+  background: #010b11;
+  height: 70vh !important;
+}
+.edit-table .section-title {
+  padding: 30px 30px 20px 30px;
+  width: 100%;
+}
+
+.edit-table .local-name-data {
+  padding: 10px 30px;
+}
 /*
 ****************************
 Contact
