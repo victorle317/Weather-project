@@ -1,7 +1,6 @@
 let suggestWeather = { suggestFood: "", suggestAddress: "", recommend: "" };
 let item = { nameWeather: "", nameIcon: "", suggestWeather };
 
-
 //Hàm mở rộng gợi ý ăn uống đi chơi,chuyển tên sang tiếng việtviệt
 let changeNameWeather = (name) => {
   switch (name) {
@@ -32,17 +31,17 @@ let changeNameWeather = (name) => {
       return item;
     }
     case "Clear": {
-        item = {
-          nameWeather: "Trời quang",
-          nameIcon: "icon-8",
-          suggestWeather: {
-            suggestFood: "Phở,thịt nướng,chả quạt,lẩu",
-            suggestAddress: "Đi cắm trại,thích hợp các hoạt độnng ngoài trời",
-            recommend: "Thích hợp các hoạt động ngoài trời",
-          },
-        };
-        return item;
-      }
+      item = {
+        nameWeather: "Trời quang",
+        nameIcon: "icon-8",
+        suggestWeather: {
+          suggestFood: "Phở,thịt nướng,chả quạt,lẩu",
+          suggestAddress: "Đi cắm trại,thích hợp các hoạt độnng ngoài trời",
+          recommend: "Thích hợp các hoạt động ngoài trời",
+        },
+      };
+      return item;
+    }
 
     case "Cloudy": {
       item = {
@@ -274,7 +273,7 @@ let changeNameWeather = (name) => {
           recommend: "Mang theo áo mưa hoặc ô",
         },
       };
-      rere;
+      return item;
     }
 
     case "Moderate rain at times": {
@@ -649,4 +648,3 @@ let changeNameWeather = (name) => {
     }
   }
 };
-

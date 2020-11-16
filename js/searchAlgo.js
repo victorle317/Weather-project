@@ -173,6 +173,12 @@ async function GetWeatherForecast(event, element, LocationDetail) {
         let data = response.data;
         template.render(data);
       })
+      .then(() => {
+        let showSearchResult = document.querySelector(
+          ".forecast-table.search-results"
+        );
+        showSearchResult.style.display = "block";
+      })
       .catch(function (error) {
         console.log(error);
       })
@@ -224,12 +230,10 @@ window.onload = function () {
     navigator.geolocation.getCurrentPosition(function (position) {
       LocationDetail.longitude = position.coords.longitude;
       LocationDetail.latitude = position.coords.latitude;
-      console.log(LocationDetail);
+      // console.log(LocationDetail);
       GetWeatherForecast(false, false, LocationDetail);
     });
   } else {
     alert("Geolocation is not supported by this browser.");
   }
 };
-
-

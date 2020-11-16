@@ -2021,7 +2021,8 @@ template.today = function (location, current, date) {
 									<div class="date">${date.toLocaleDateString()}</div>
 								</div> <!-- .forecast-header -->
 							<div class="forecast-content">
-									<div class="location"> ${location.name},${location.country}</div>
+                  <div class="location"> ${location.name},${location.country}
+                  </div>
 								<div class="degree">
 									<div class="num">${current.temp_c}<sup>o</sup>C</div>
 									<div class="forecast-icon">
@@ -2069,7 +2070,7 @@ template.showData = async (data) => {
   //   let dataLocation = data[key];
   //   await getJSONAPI(dataLocation[0], dataLocation[1]);
   // });
-  for(let key in data) {
+  for (let key in data) {
     let dataLocation = data[key];
     await getJSONAPI(dataLocation[0], dataLocation[1]);
   }

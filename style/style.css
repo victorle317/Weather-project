@@ -259,6 +259,7 @@ body {
   font-weight: 300;
   line-height: 1.5;
   background: #010b11;
+  min-height: 100vh;
 }
 
 h1,
@@ -1728,7 +1729,7 @@ header.sticky {
 .forecast-table.search-results {
   padding-top: 50px;
   position: relative;
-  /* display: none; */
+  display: none;
 }
 .forecast-table .title-result {
   top: -50px;
@@ -2050,7 +2051,7 @@ Account
   height: 70vh !important;
   
 }
-.edit-table .data-all {
+.edit-table #data-all {
   overflow-x: hidden;
   overflow-y: auto;
   height: 70%;
@@ -2062,7 +2063,15 @@ Account
 
 .edit-table .local-name-data {
   padding: 10px 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
+.edit-table .local-name-data:hover {
+  background: rgba(255, 255, 255, 0.336);
+  color: black;
+}
+
 /*
 ****************************
 Contact

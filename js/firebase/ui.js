@@ -6,11 +6,15 @@ const setupUI = (user) => {
     //account info
     (async (id) => {
       let result = await db.collection("Users").doc(id).get();
+      let resultFollow = await db.collection("Addresses").doc(id).get();
       document.querySelector(".name").innerHTML = `${result.data().fullName}`;
       document.querySelector(".bio").innerHTML = `${result.data().bio}`;
       document.querySelector("#fb").href = `${result.data().facebook}`;
       document.querySelector("#ist").href = `${result.data().instagram}`;
       document.querySelector("#twt").href = `${result.data().twitter}`;
+      document.querySelector(".item.follow span").innerHTML = `${
+        Object.keys(resultFollow.data()).length
+      }`;
     })(user.uid);
     //edit account info
     document.querySelector("#edit-profile").addEventListener("click", () => {

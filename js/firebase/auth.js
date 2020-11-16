@@ -35,6 +35,9 @@ $btnSignUp.addEventListener("click", (e) => {
             { follow: 0 }
           );
       })
+      .then((cred) => {
+        return db.collection("Addresses").doc(cred.user.uid);
+      })
       .then(() => {
         window.location.href = "index.html";
       });

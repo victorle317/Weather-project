@@ -7,6 +7,7 @@ let addressUser = (user) => {
         let addressCollection = await db.collection("Addresses").doc(id);
         let getDataAddressCollection = await addressCollection.get();
         let dataFind = getDataAddressCollection.data();
+        console.log(Object.keys(dataFind).length);
         var numberAll = Object.keys(dataFind).length;
 
         //add lon and lat
@@ -14,6 +15,7 @@ let addressUser = (user) => {
           [`${numberAll}`]: [latSearch, lonSearch],
         });
       })(user.uid);
+      
     }
   });
 };
