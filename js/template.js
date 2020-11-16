@@ -2032,7 +2032,7 @@ template.today = function (location, current, date) {
 									</div>
 								<span><img src="images/icon-umberella.png" alt="">${current.humidity}%</span>
 								<span><img src="images/icon-wind.png" alt="">${current.wind_kph}km/h</span>
-								<span><img src="images/icon-compass.png" alt="">${
+								<span class="suggest"><img src="images/icon-compass.png" alt="">${
                   changeNameWeather(current.condition.text).nameWeather
                 }</span>
 								</div>
@@ -2064,9 +2064,13 @@ template.forecast = function (aSingleDay, strDate) {
 // template.render(tempData)
 
 //
-template.showData = (data) => {
-  Object.keys(data).forEach((key) => {
+template.showData = async (data) => {
+  // Object.keys(data).forEach((key) => {
+  //   let dataLocation = data[key];
+  //   await getJSONAPI(dataLocation[0], dataLocation[1]);
+  // });
+  for(let key in data) {
     let dataLocation = data[key];
-    getJSONAPI(dataLocation[0], dataLocation[1]);
-  });
+    await getJSONAPI(dataLocation[0], dataLocation[1]);
+  }
 };
