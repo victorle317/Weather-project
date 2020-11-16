@@ -2048,6 +2048,12 @@ Account
 .edit-table {
   background: #010b11;
   height: 70vh !important;
+  
+}
+.edit-table .data-all {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 70%;
 }
 .edit-table .section-title {
   padding: 30px 30px 20px 30px;
