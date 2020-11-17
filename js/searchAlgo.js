@@ -218,9 +218,6 @@ async function getJSONAPI(lat, lon) {
     })
     .catch((error) => {
       console.log(error);
-    })
-    .then(() => {
-      console.log("Nice sừuuu");
     });
 }
 

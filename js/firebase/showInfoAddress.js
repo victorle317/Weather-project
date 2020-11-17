@@ -1,7 +1,6 @@
 let showInfoAddress = (user) => {
   (async (id) => {
     db.collection("Addresses").onSnapshot((snapshot) => {
-      // console.log(snapshot.data())
       snapshot.docChanges().forEach(async (change) => {
         if (change.type === "added") {
           if (id == change.doc.id) {

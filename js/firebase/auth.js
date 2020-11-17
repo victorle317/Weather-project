@@ -22,21 +22,21 @@ $btnSignUp.addEventListener("click", (e) => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((cred) => {
-        return db
-          .collection("Users")
-          .doc(cred.user.uid)
-          .set(
-            { fullName: fName },
-            { bio: "Note" },
-            { facebook: "#" },
-            { twitter: "#" },
-            { instagram: "#" },
-            { find: 0 },
-            { follow: 0 }
-          );
+        return db.collection("Users").doc(cred.user.uid).set({
+          fullName: fName,
+          bio: "Viết gì đó...",
+          facebook: "#",
+          twitter: "#",
+          instagram: "#",
+          find: 0,
+          follow: 0,
+        });
       })
-      .then((cred) => {
-        return db.collection("Addresses").doc(cred.user.uid);
+      .then(() => {
+        auth.onAuthStateChanged((user) => {
+          db.collection("Addresses").doc(user.uid).set({});
+          console.log(user.uid);
+        });
       })
       .then(() => {
         window.location.href = "index.html";
