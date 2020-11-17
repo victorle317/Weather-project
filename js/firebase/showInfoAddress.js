@@ -8,26 +8,36 @@ let showInfoAddress = (user) => {
             console.log("added ", mainData);
             document.querySelector(".item.follow span").innerHTML = `${
               Object.keys(mainData).length
-            }`;
+              }`;
             if (Object.getOwnPropertyNames(mainData).length !== 0) {
               await template.showData(mainData);
             }
-              
+
             actionModal();
             editModal(id, mainData);
           }
-        }
+          //lấy ra gợi ý 
+          let suggest = document.getElementsByClassName("suggest");
+          for (let i = 0; i < suggest.length; i++) {
+            suggest[i].addEventListener("click", () => {
+              console.log(convertText(suggest[i].innerText))
 
-        if (change.type === "modified" && id == change.doc.id) {
-          console.log("modified", change.doc.data());
-          if (Object.getOwnPropertyNames(change.doc.data()).length !== 0)
-            await template.showData(change.doc.data());
-        }
+              // console.log(suggest[i].innerText
+            
+            })
+          }
+          }
 
-        if (change.type === "removed") {
-          console.log("removed: ", change.doc.data());
-        }
-      });
+          if (change.type === "modified" && id == change.doc.id) {
+            console.log("modified", change.doc.data());
+            if (Object.getOwnPropertyNames(change.doc.data()).length !== 0)
+              await template.showData(change.doc.data());
+          }
+
+          if (change.type === "removed") {
+            console.log("removed: ", change.doc.data());
+          }
+        });
     });
   })(user.uid);
 };
