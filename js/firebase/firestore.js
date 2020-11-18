@@ -6,7 +6,7 @@ let getData = (check, user) => {
     showInfoAddress(user);
   } else {
     setupUI();
-    addressUser("");
+    addressUser("");+
     showInfoAddress();
   }
 };

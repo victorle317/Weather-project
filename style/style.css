@@ -245,7 +245,9 @@ table {
 *:after {
   box-sizing: border-box;
 }
-
+::-webkit-scrollbar {
+  width: 0;
+}
 /*
  * Global Styles
  */
@@ -2049,7 +2051,6 @@ Account
 .edit-table {
   background: #010b11;
   height: 70vh !important;
-  
 }
 .edit-table #data-all {
   overflow-x: hidden;
