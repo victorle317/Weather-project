@@ -3,14 +3,14 @@ let getData = (check, user) => {
   if (check == true) {
     setupUI(user);
     addressUser(user);
-    showInfoAddress(user);
+    cache.user = user;
+    showAddresses();
   } else {
     setupUI();
-    addressUser("");+
-    showInfoAddress();
+    addressUser("");
   }
 };
-
+// cái này là khi đăng nhập xong rồi mới chạy 
 // //get data
 // let getData = (check, user) => {
 //   if (check == true) {

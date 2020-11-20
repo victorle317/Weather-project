@@ -1984,6 +1984,7 @@ template.render = function (data) {
 
   // console.log(this.forcastTable)
 };
+
 template.renderVer2 = function (data) {
   var htmlResult = "";
   let forcastContainerUserData = document.querySelector(
@@ -2008,8 +2009,7 @@ template.renderVer2 = function (data) {
   let currentData = forcastContainerUserData.innerHTML;
   currentData += htmlResult;
   forcastContainerUserData.innerHTML = currentData;
-  //   forcastContainerUserData.innerHTML =
-  //     forcastContainerUserData.innerHTML + htmlResult;
+ 
 };
 
 // cấu trúc data và html có 2 phần 1 phần today 1 phần forecast, tách ra làm 2 hàm như dưới
@@ -2033,9 +2033,10 @@ template.today = function (location, current, date) {
 									</div>
 								<span><img src="images/icon-umberella.png" alt="">${current.humidity}%</span>
 								<span><img src="images/icon-wind.png" alt="">${current.wind_kph}km/h</span>
-								<span class="suggest"><img src="images/icon-compass.png" alt="">${
-                  changeNameWeather(current.condition.text).nameWeather
-                }</span>
+                <span class="suggest" data-toggle="modal" data-target="#suggest-data-modal">
+                  <i class="fas fa-exclamation"></i> &nbsp
+                  ${changeNameWeather(current.condition.text).nameWeather}
+                </span>
 								</div>
 							</div>`;
   return htmlPresent;
@@ -2050,7 +2051,7 @@ template.forecast = function (aSingleDay, strDate) {
 						</div> <!-- .forecast-header -->
 						<div class="forecast-content">
 							<div class="forecast-icon">
-							    <h3>${changeNameWeather(aSingleDay.day.condition.text).nameWeather}</h3>
+							    <h3 class="suggest" data-toggle="modal" data-target="#suggest-data-modal">${changeNameWeather(aSingleDay.day.condition.text).nameWeather}</h3>
 								<img src="images/icons/${
                   changeNameWeather(aSingleDay.day.condition.text).nameIcon
                 }.svg" alt="" width=48>
@@ -2065,7 +2066,7 @@ template.forecast = function (aSingleDay, strDate) {
 // template.render(tempData)
 
 //
-template.showData = async (data) => {
+template.showData = async (data = cache.addresses) => {
   // Object.keys(data).forEach((key) => {
   //   let dataLocation = data[key];
   //   await getJSONAPI(dataLocation[0], dataLocation[1]);

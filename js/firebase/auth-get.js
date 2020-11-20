@@ -3,7 +3,7 @@ auth.onAuthStateChanged((user) => {
   if (user) {
     getData(true, user);
   } else {
-    getData(false, user);
+    getData(false, "");
   }
 });
 

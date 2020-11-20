@@ -87,7 +87,7 @@ async function myFunction() {
         SearchByGPSAPICall(LocationDetail);
         getLocationIsClicked = false;
       }
-    }, 1500)
+    }, 500)
   );
 }
 
@@ -98,7 +98,7 @@ async function SearchByKeywordAPICall(keyword) {
       `http://api.weatherapi.com/v1/search.json?key=7b5133a15d544fd2938162305201910&q=${keyword}&lang=vi`
     )
     .then(function (response) {
-      console.log(response.data);
+      // console.log(response.data);
       let data = response.data;
       if (data.length === 0) {
         alert(
@@ -110,10 +110,10 @@ async function SearchByKeywordAPICall(keyword) {
     })
     .catch(function (error) {
       console.log(error);
-    })
-    .then(function () {
-      console.log("success");
     });
+  // .then(function () {
+  //   console.log("success");
+  // });
 }
 
 // Hàm này nhận tham số là 1 object có đầy đủ kinh độ vĩ độ và gọi API
@@ -154,6 +154,9 @@ async function GetWeatherForecast(event, element, LocationDetail) {
   // nếu người dùng click vào search result thì chạy vế if element
   if (element) {
     id = element.getAttribute("id");
+    document.querySelector("#results").style.display = "none";
+    document.querySelector(".inputfix").style.borderRadius = "20px 3px 20px 3px !important";
+    // db.collection("Users").doc(id).update({find: })
     //lay ra lat lon khi click vao dia chi o Search, sang addUserAddress.js
     for (let i = 0; i < id.length; i++) {
       if (id[i] === ",") {
@@ -200,10 +203,10 @@ async function GetWeatherForecast(event, element, LocationDetail) {
       })
       .catch(function (error) {
         console.log(error);
-      })
-      .then(function () {
-        console.log("success");
       });
+    // .then(function () {
+    //   console.log("success");
+    // });
   }
 }
 // Get JSON API

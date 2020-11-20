@@ -7,15 +7,16 @@ let addressUser = (user) => {
         let addressCollection = await db.collection("Addresses").doc(id);
         let getDataAddressCollection = await addressCollection.get();
         let dataFind = getDataAddressCollection.data();
-        console.log(Object.keys(dataFind).length);
+        // console.log(Object.keys(dataFind).length);
         var numberAll = Object.keys(dataFind).length;
-
+        document.querySelector(".forecast-table.search-results").style.display =
+          "none";
+        
         //add lon and lat
         addressCollection.update({
           [`${numberAll}`]: [latSearch, lonSearch],
         });
       })(user.uid);
-      
     }
   });
 };

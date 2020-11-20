@@ -29,7 +29,6 @@ $btnSignUp.addEventListener("click", (e) => {
           twitter: "#",
           instagram: "#",
           find: 0,
-          follow: 0,
         });
       })
       .then(() => {
