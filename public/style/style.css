@@ -2239,7 +2239,7 @@ Contact
 @media (max-width: 991px) {
   header .menu {
     position: fixed;
-    top: 80px;
+    top: 60px;
     right: -100%;
     display: block;
     padding: 100px 50px;
