@@ -1731,7 +1731,6 @@ header.sticky {
 .forecast-table.search-results {
   padding-top: 50px;
   position: relative;
-  display: none;
 }
 .forecast-table .title-result {
   top: -50px;
@@ -1861,10 +1860,10 @@ header.sticky {
   text-overflow: ellipsis;
   margin-right: 0;
 }
-.forecast-container .forecast.today .suggest img {
+/* .forecast-container .forecast.today .suggest img {
   
 
-}
+} */
 .forecast-container .forecast.today .suggest:hover {
   background: #009ad8;
   color: white;

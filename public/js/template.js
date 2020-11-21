@@ -1957,7 +1957,7 @@ template.render = function (data) {
   var forcastContainerResult = document.querySelector(
     ".forecast-container.results"
   );
-
+  // console.log(forcastContainerResult)
   let date = new Date();
   // lấy dự liệu ngày hôm nay
   html = this.today(data.location, data.current, date);
@@ -1981,6 +1981,7 @@ template.render = function (data) {
   // HTML = dữ liệu ngày hôm nay + n dữ liệu forecast
   // làm được cái template dữ liệu rồi thì gắn vào innerhtml render ra màn hình
   forcastContainerResult.innerHTML = html;
+  // console.log(html)
 
   // console.log(this.forcastTable)
 };
