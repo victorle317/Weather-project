@@ -192,14 +192,13 @@ async function GetWeatherForecast(event, element, LocationDetail) {
   }
   // Nếu người dùng ko click gì cả thì lấy dữ liệu từ định vị (dùng cho lần đầu tiên load trang)
   if (LocationDetail) {
-    console.log('sdsd')
     await axios
       .get(
         `https://api.weatherapi.com/v1/forecast.json?key=1f4e25194f3f4b49a42153456201910&q=${LocationDetail.latitude},${LocationDetail.longitude}&days=3`
       )
       .then(function (response) {
-       
-        // console.log(response);
+        // console.log(response.data);
+        console.log(response);
         let data = response.data;
         template.render(data);
       })
@@ -227,5 +226,4 @@ async function getJSONAPI(lat, lon) {
 }
 
 //Hàm này sẽ chạy đầu tiên khi load page, chức năng: lấy toạ độ, gọi API và render địa điểm hiện tại
-
 

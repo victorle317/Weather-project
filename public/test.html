@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+
+</head>
+<body>
+    <script>
+         var firebaseConfig = {
+            apiKey: "AIzaSyCHwB8S2pGDecPzik0xB1JNyluCVohyTlk",
+        authDomain: "chat-app-bc2a8.firebaseapp.com",
+        databaseURL: "https://chat-app-bc2a8.firebaseio.com",
+        projectId: "chat-app-bc2a8",
+        storageBucket: "chat-app-bc2a8.appspot.com",
+        messagingSenderId: "922317285890",
+        appId: "1:922317285890:web:fbac59705c66cf64a7551b"
+  };
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore()
+  db.collection("users").get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+        doc.ref.delete()
+    });
+});
+    </script>
+</body>
+</html>

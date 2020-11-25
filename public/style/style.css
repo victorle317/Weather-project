@@ -1731,6 +1731,7 @@ header.sticky {
 .forecast-table.search-results {
   padding-top: 50px;
   position: relative;
+  /* display: none; */
 }
 .forecast-table .title-result {
   top: -50px;
@@ -1851,7 +1852,7 @@ header.sticky {
   width: 30%;
 }
 .forecast-container .forecast.today span {
-  margin-right: 20px;
+  margin-right: 15px;
 }
 .forecast-container .forecast.today .suggest {
   padding: 10px;
@@ -1860,10 +1861,10 @@ header.sticky {
   text-overflow: ellipsis;
   margin-right: 0;
 }
-/* .forecast-container .forecast.today .suggest img {
+.forecast-container .forecast.today .suggest img {
   
 
-} */
+}
 .forecast-container .forecast.today .suggest:hover {
   background: #009ad8;
   color: white;
@@ -1945,7 +1946,7 @@ Account
 
 .card-header {
   background: #021622;
-  padding: 60px 40px;
+  padding: 40px 20px;
 }
 
 .pic {
@@ -2083,7 +2084,7 @@ Account
 .suggest-table #data-suggest {
   overflow-x: hidden;
   overflow-y: auto;
-  height: 70%;
+  height: 60%;
 }
 .edit-table .section-title,
 .suggest-table .section-title {
@@ -2238,7 +2239,7 @@ Contact
 @media (max-width: 991px) {
   header .menu {
     position: fixed;
-    top: 60px;
+    top: 80px;
     right: -100%;
     display: block;
     padding: 100px 50px;
@@ -2308,5 +2309,16 @@ Contact
   }
   .forecast-container .forecast .forecast-content .degree-mar {
     font-size: 1em;
+  }
+}
+
+/* @media (max-height: 715px) {
+  .profile-card .card-header{
+    padding: 30px 20px;
+  }
+} */
+@media (max-height: 780px) {
+  .contact-form textarea {
+    min-height: 45px
   }
 }

@@ -154,7 +154,7 @@ let renderActionModal = function () {
       <div class="local-name-data">${i}. ${address} 
         <input type="checkbox" aria-label="Checkbox for following text input" value="${
           i - 1
-        }" class="local-index">
+        }" class="local-index is-completed">
       </div>`;
     i++;
   }
@@ -176,28 +176,35 @@ let renderActionModal = function () {
       }
     });
   }
+  (() => {
+    document.getElementById("not-check").addEventListener("click", () => {
+      let fake = document.querySelectorAll(".is-completed");
+      fake.forEach((e) => {
+        if (e.checked) {
+          e.checked = false;
+        }
+      });
+    });
+  })();
 };
-
 // let renderEditModal = function () {};
 
 var suggestShow = function () {
   let suggest = document.getElementsByClassName("suggest");
   let dataSuggest = document.getElementById("data-suggest");
-  // console.log(suggest);
   for (let i = 0; i < suggest.length; i++) {
     let objectDataSuggest;
-    suggest[i].addEventListener("click", () => {
-      // console.log(suggest[i].innerText);
+    suggest[i].addEventListener("click", async () => {
       objectDataSuggest = convertText(`${suggest[i].innerText}`);
       objectDataSuggest = `<div class="suggest-food">😋 Ăn gì vào thơì tiết như này nhỉ ?
-                              <div class="result-suggest"> - ${objectDataSuggest.suggestFood}.</div>
-                           </div>
-                           <div class="suggest-address">🚗 Đi đâu vào thời tiết như này ?
-                              <div class="result-suggest"> - ${objectDataSuggest.suggestAddress}.</div>
-                           </div>
-                           <div class="suggest-recommend">💡 Lưu ý nhé !
-                              <div class="result-suggest"> - ${objectDataSuggest.recommend}.</div>
-                           </div>`;
+                                <div class="result-suggest"> - ${objectDataSuggest.suggestFood}.</div>
+                             </div>
+                             <div class="suggest-address">🚗 Đi đâu vào thời tiết như này ?
+                                <div class="result-suggest"> - ${objectDataSuggest.suggestAddress}.</div>
+                             </div>
+                             <div class="suggest-recommend">💡 Lưu ý nhé !
+                                <div class="result-suggest"> - ${objectDataSuggest.recommend}.</div>
+                             </div>`;
       dataSuggest.innerHTML = objectDataSuggest;
     });
   }
